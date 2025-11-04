@@ -29,6 +29,7 @@ terraform {
 provider "spotted" {
   client_id = "My Client ID" # or set SPOTIFY_CLIENT_ID env variable
   client_secret = "My Client Secret" # or set SPOTIFY_CLIENT_SECRET env variable
+  webhook_key = "My Webhook Key" # or set ORG_WEBHOOK_KEY env variable
 }
 
 # Configure a resource
@@ -55,6 +56,7 @@ If an environment variable is provided, then the option does not need to be set 
 | ------------- | ----------------------- | -------- | ------------- |
 | client_secret | `SPOTIFY_CLIENT_SECRET` | true     | —             |
 | client_id     | `SPOTIFY_CLIENT_ID`     | true     | —             |
+| webhook_key   | `ORG_WEBHOOK_KEY`       | false    | —             |
 
 ## Semantic versioning
 
