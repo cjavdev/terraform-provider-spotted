@@ -55,7 +55,6 @@ type SpottedProviderModel struct {
 	BaseURL      types.String `tfsdk:"base_url" json:"base_url,optional"`
 	ClientID     types.String `tfsdk:"client_id" json:"client_id,optional"`
 	ClientSecret types.String `tfsdk:"client_secret" json:"client_secret,optional"`
-	WebhookKey   types.String `tfsdk:"webhook_key" json:"webhook_key,optional"`
 }
 
 func (p *SpottedProvider) Metadata(ctx context.Context, req provider.MetadataRequest, resp *provider.MetadataResponse) {
@@ -74,9 +73,6 @@ func ProviderSchema(ctx context.Context) schema.Schema {
 				Optional: true,
 			},
 			"client_secret": schema.StringAttribute{
-				Optional: true,
-			},
-			"webhook_key": schema.StringAttribute{
 				Optional: true,
 			},
 		},
@@ -125,12 +121,6 @@ func (p *SpottedProvider) Configure(ctx context.Context, req provider.ConfigureR
 			"The client_secret field is required. Set it in provider configuration or via the \"SPOTIFY_CLIENT_SECRET\" environment variable.",
 		)
 		return
-	}
-
-	if !data.WebhookKey.IsNull() && !data.WebhookKey.IsUnknown() {
-		opts = append(opts, option.WithWebhookKey(data.WebhookKey.ValueString()))
-	} else if o, ok := os.LookupEnv("ORG_WEBHOOK_KEY"); ok {
-		opts = append(opts, option.WithWebhookKey(o))
 	}
 
 	client := spotted.NewClient(
