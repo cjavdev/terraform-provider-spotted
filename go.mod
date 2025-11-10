@@ -13,7 +13,7 @@ require (
 	github.com/hashicorp/terraform-plugin-framework-validators v0.17.0
 	github.com/hashicorp/terraform-plugin-go v0.28.0
 	github.com/hashicorp/terraform-plugin-log v0.9.0
-	github.com/stainless-sdks/spotted-go v0.0.0-20251110164239-e1483f3c8af2
+	github.com/stainless-sdks/spotted-go v0.0.0-20251110170340-db3976c06f58
 	github.com/tidwall/gjson v1.18.0
 	github.com/tidwall/sjson v1.2.5
 )
