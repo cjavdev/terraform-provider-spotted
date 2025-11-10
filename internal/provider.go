@@ -34,7 +34,6 @@ import (
 	"github.com/stainless-sdks/spotted-terraform/internal/services/playlist_image"
 	"github.com/stainless-sdks/spotted-terraform/internal/services/playlist_track"
 	"github.com/stainless-sdks/spotted-terraform/internal/services/recommendation"
-	"github.com/stainless-sdks/spotted-terraform/internal/services/search"
 	"github.com/stainless-sdks/spotted-terraform/internal/services/show"
 	"github.com/stainless-sdks/spotted-terraform/internal/services/track"
 	"github.com/stainless-sdks/spotted-terraform/internal/services/user_playlist"
@@ -161,7 +160,6 @@ func (p *SpottedProvider) DataSources(ctx context.Context) []func() datasource.D
 		me_player_queue.NewMePlayerQueueDataSource,
 		chapter.NewChapterDataSource,
 		track.NewTrackDataSource,
-		search.NewSearchDataSource,
 		playlist.NewPlaylistDataSource,
 		playlist_track.NewPlaylistTracksDataSource,
 		user_playlist.NewUserPlaylistsDataSource,
