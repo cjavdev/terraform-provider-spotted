@@ -7,7 +7,6 @@ import (
 	"os"
 
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
-	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/provider"
 	"github.com/hashicorp/terraform-plugin-framework/provider/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
@@ -54,6 +53,7 @@ type SpottedProviderModel struct {
 	BaseURL      types.String `tfsdk:"base_url" json:"base_url,optional"`
 	ClientID     types.String `tfsdk:"client_id" json:"client_id,optional"`
 	ClientSecret types.String `tfsdk:"client_secret" json:"client_secret,optional"`
+	AccessToken  types.String `tfsdk:"access_token" json:"access_token,optional"`
 }
 
 func (p *SpottedProvider) Metadata(ctx context.Context, req provider.MetadataRequest, resp *provider.MetadataResponse) {
@@ -72,6 +72,9 @@ func ProviderSchema(ctx context.Context) schema.Schema {
 				Optional: true,
 			},
 			"client_secret": schema.StringAttribute{
+				Optional: true,
+			},
+			"access_token": schema.StringAttribute{
 				Optional: true,
 			},
 		},
@@ -100,26 +103,18 @@ func (p *SpottedProvider) Configure(ctx context.Context, req provider.ConfigureR
 		opts = append(opts, option.WithClientID(data.ClientID.ValueString()))
 	} else if o, ok := os.LookupEnv("SPOTIFY_CLIENT_ID"); ok {
 		opts = append(opts, option.WithClientID(o))
-	} else {
-		resp.Diagnostics.AddAttributeError(
-			path.Root("client_id"),
-			"Missing client_id value",
-			"The client_id field is required. Set it in provider configuration or via the \"SPOTIFY_CLIENT_ID\" environment variable.",
-		)
-		return
 	}
 
 	if !data.ClientSecret.IsNull() && !data.ClientSecret.IsUnknown() {
 		opts = append(opts, option.WithClientSecret(data.ClientSecret.ValueString()))
 	} else if o, ok := os.LookupEnv("SPOTIFY_CLIENT_SECRET"); ok {
 		opts = append(opts, option.WithClientSecret(o))
-	} else {
-		resp.Diagnostics.AddAttributeError(
-			path.Root("client_secret"),
-			"Missing client_secret value",
-			"The client_secret field is required. Set it in provider configuration or via the \"SPOTIFY_CLIENT_SECRET\" environment variable.",
-		)
-		return
+	}
+
+	if !data.AccessToken.IsNull() && !data.AccessToken.IsUnknown() {
+		opts = append(opts, option.WithAccessToken(data.AccessToken.ValueString()))
+	} else if o, ok := os.LookupEnv("SPOTIFY_ACCESS_TOKEN"); ok {
+		opts = append(opts, option.WithAccessToken(o))
 	}
 
 	client := spotted.NewClient(
