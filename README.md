@@ -29,6 +29,7 @@ terraform {
 provider "spotted" {
   client_id = "My Client ID" # or set SPOTIFY_CLIENT_ID env variable
   client_secret = "My Client Secret" # or set SPOTIFY_CLIENT_SECRET env variable
+  access_token = "My Access Token" # or set SPOTIFY_ACCESS_TOKEN env variable
 }
 
 # Configure a resource
@@ -53,8 +54,9 @@ If an environment variable is provided, then the option does not need to be set 
 
 | Property      | Environment variable    | Required | Default value |
 | ------------- | ----------------------- | -------- | ------------- |
-| client_secret | `SPOTIFY_CLIENT_SECRET` | true     | —             |
-| client_id     | `SPOTIFY_CLIENT_ID`     | true     | —             |
+| client_secret | `SPOTIFY_CLIENT_SECRET` | false    | —             |
+| client_id     | `SPOTIFY_CLIENT_ID`     | false    | —             |
+| access_token  | `SPOTIFY_ACCESS_TOKEN`  | false    | —             |
 
 ## Semantic versioning
 
