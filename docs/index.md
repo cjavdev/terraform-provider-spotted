@@ -16,6 +16,7 @@ description: |-
 provider "spotted" {
   client_id = "My Client ID"
   client_secret = "My Client Secret"
+  access_token = "My Access Token"
 }
 ```
 
@@ -24,6 +25,7 @@ provider "spotted" {
 
 ### Optional
 
+- `access_token` (String)
 - `base_url` (String) Set the base url that the provider connects to.
 - `client_id` (String)
 - `client_secret` (String)
