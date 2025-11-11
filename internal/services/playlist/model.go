@@ -65,12 +65,12 @@ type PlaylistOwnerExternalURLsModel struct {
 
 type PlaylistTracksModel struct {
 	Href     types.String                                           `tfsdk:"href" json:"href,computed"`
-	Items    customfield.NestedObjectList[PlaylistTracksItemsModel] `tfsdk:"items" json:"items,computed"`
 	Limit    types.Int64                                            `tfsdk:"limit" json:"limit,computed"`
 	Next     types.String                                           `tfsdk:"next" json:"next,computed"`
 	Offset   types.Int64                                            `tfsdk:"offset" json:"offset,computed"`
 	Previous types.String                                           `tfsdk:"previous" json:"previous,computed"`
 	Total    types.Int64                                            `tfsdk:"total" json:"total,computed"`
+	Items    customfield.NestedObjectList[PlaylistTracksItemsModel] `tfsdk:"items" json:"items,computed"`
 }
 
 type PlaylistTracksItemsModel struct {

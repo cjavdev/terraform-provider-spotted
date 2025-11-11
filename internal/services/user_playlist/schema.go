@@ -165,6 +165,26 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 						Description: "A link to the Web API endpoint returning the full result of the request",
 						Computed:    true,
 					},
+					"limit": schema.Int64Attribute{
+						Description: "The maximum number of items in the response (as set in the query or by default).",
+						Computed:    true,
+					},
+					"next": schema.StringAttribute{
+						Description: "URL to the next page of items. ( `null` if none)",
+						Computed:    true,
+					},
+					"offset": schema.Int64Attribute{
+						Description: "The offset of the items returned (as set in the query or by default)",
+						Computed:    true,
+					},
+					"previous": schema.StringAttribute{
+						Description: "URL to the previous page of items. ( `null` if none)",
+						Computed:    true,
+					},
+					"total": schema.Int64Attribute{
+						Description: "The total number of items available to return.",
+						Computed:    true,
+					},
 					"items": schema.ListNestedAttribute{
 						Computed:   true,
 						CustomType: customfield.NewNestedObjectListType[UserPlaylistTracksItemsModel](ctx),
@@ -762,26 +782,6 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 								},
 							},
 						},
-					},
-					"limit": schema.Int64Attribute{
-						Description: "The maximum number of items in the response (as set in the query or by default).",
-						Computed:    true,
-					},
-					"next": schema.StringAttribute{
-						Description: "URL to the next page of items. ( `null` if none)",
-						Computed:    true,
-					},
-					"offset": schema.Int64Attribute{
-						Description: "The offset of the items returned (as set in the query or by default)",
-						Computed:    true,
-					},
-					"previous": schema.StringAttribute{
-						Description: "URL to the previous page of items. ( `null` if none)",
-						Computed:    true,
-					},
-					"total": schema.Int64Attribute{
-						Description: "The total number of items available to return.",
-						Computed:    true,
 					},
 				},
 			},
