@@ -69,7 +69,7 @@ func (r *PlaylistImageResource) Create(ctx context.Context, req resource.CreateR
 	_, err = r.client.Playlists.Images.Update(
 		ctx,
 		data.PlaylistID.ValueString(),
-		spotted.PlaylistImageUpdateParams{},
+		data.Body.ValueString(),
 		option.WithRequestBody("application/json", dataBytes),
 		option.WithResponseBodyInto(&res),
 		option.WithMiddleware(logging.Middleware(ctx)),
@@ -114,7 +114,7 @@ func (r *PlaylistImageResource) Update(ctx context.Context, req resource.UpdateR
 	_, err = r.client.Playlists.Images.Update(
 		ctx,
 		data.PlaylistID.ValueString(),
-		spotted.PlaylistImageUpdateParams{},
+		data.Body.ValueString(),
 		option.WithRequestBody("application/json", dataBytes),
 		option.WithResponseBodyInto(&res),
 		option.WithMiddleware(logging.Middleware(ctx)),
