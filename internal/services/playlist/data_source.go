@@ -8,9 +8,9 @@ import (
 	"io"
 	"net/http"
 
+	"github.com/cjavdev/spotted-go"
+	"github.com/cjavdev/spotted-go/option"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
-	"github.com/stainless-sdks/spotted-go"
-	"github.com/stainless-sdks/spotted-go/option"
 	"github.com/stainless-sdks/spotted-terraform/internal/apijson"
 	"github.com/stainless-sdks/spotted-terraform/internal/logging"
 )
