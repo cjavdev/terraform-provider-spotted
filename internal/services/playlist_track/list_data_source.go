@@ -6,9 +6,9 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/cjavdev/spotted-go"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
-	"github.com/stainless-sdks/spotted-go"
 	"github.com/stainless-sdks/spotted-terraform/internal/apijson"
 	"github.com/stainless-sdks/spotted-terraform/internal/customfield"
 )

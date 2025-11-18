@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/stainless-sdks/spotted-go/option"
+	"github.com/cjavdev/spotted-go/option"
 
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 )
