@@ -22,7 +22,7 @@ terraform {
   required_providers {
     spotted = {
       source  = "cjavdev/spotted"
-      version = "~> 0.0.1"
+      version = "~> 0.1.0"
     }
   }
 }
