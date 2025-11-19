@@ -7,10 +7,10 @@ import (
 	"fmt"
 
 	"github.com/cjavdev/spotted-go"
+	"github.com/cjavdev/terraform-provider-spotted/internal/apijson"
+	"github.com/cjavdev/terraform-provider-spotted/internal/customfield"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
-	"github.com/stainless-sdks/spotted-terraform/internal/apijson"
-	"github.com/stainless-sdks/spotted-terraform/internal/customfield"
 )
 
 type MePlaylistsDataSource struct {
