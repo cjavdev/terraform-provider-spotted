@@ -25,7 +25,6 @@ import (
 	"github.com/cjavdev/terraform-provider-spotted/internal/services/me_show"
 	"github.com/cjavdev/terraform-provider-spotted/internal/services/me_track"
 	"github.com/cjavdev/terraform-provider-spotted/internal/services/playlist"
-	"github.com/cjavdev/terraform-provider-spotted/internal/services/playlist_image"
 	"github.com/cjavdev/terraform-provider-spotted/internal/services/playlist_track"
 	"github.com/cjavdev/terraform-provider-spotted/internal/services/recommendation"
 	"github.com/cjavdev/terraform-provider-spotted/internal/services/show"
@@ -133,7 +132,6 @@ func (p *SpottedProvider) Resources(ctx context.Context) []func() resource.Resou
 	return []func() resource.Resource{
 		playlist.NewResource,
 		playlist_track.NewResource,
-		playlist_image.NewResource,
 		user_playlist.NewResource,
 	}
 }
