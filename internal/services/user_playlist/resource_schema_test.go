@@ -6,8 +6,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/stainless-sdks/spotted-terraform/internal/services/user_playlist"
-	"github.com/stainless-sdks/spotted-terraform/internal/test_helpers"
+	"github.com/cjavdev/terraform-provider-spotted/internal/services/user_playlist"
+	"github.com/cjavdev/terraform-provider-spotted/internal/test_helpers"
 )
 
 func TestUserPlaylistModelSchemaParity(t *testing.T) {

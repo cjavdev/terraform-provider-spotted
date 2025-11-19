@@ -1,4 +1,4 @@
-module github.com/stainless-sdks/spotted-terraform
+module github.com/cjavdev/terraform-provider-spotted
 
 go 1.23.0
 

@@ -10,9 +10,9 @@ import (
 
 	"github.com/cjavdev/spotted-go"
 	"github.com/cjavdev/spotted-go/option"
+	"github.com/cjavdev/terraform-provider-spotted/internal/apijson"
+	"github.com/cjavdev/terraform-provider-spotted/internal/logging"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
-	"github.com/stainless-sdks/spotted-terraform/internal/apijson"
-	"github.com/stainless-sdks/spotted-terraform/internal/logging"
 )
 
 type ChapterDataSource struct {

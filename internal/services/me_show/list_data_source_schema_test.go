@@ -6,8 +6,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/stainless-sdks/spotted-terraform/internal/services/me_show"
-	"github.com/stainless-sdks/spotted-terraform/internal/test_helpers"
+	"github.com/cjavdev/terraform-provider-spotted/internal/services/me_show"
+	"github.com/cjavdev/terraform-provider-spotted/internal/test_helpers"
 )
 
 func TestMeShowsDataSourceModelSchemaParity(t *testing.T) {

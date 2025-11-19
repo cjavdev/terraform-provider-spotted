@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/stainless-sdks/spotted-terraform/internal/importpath"
+	"github.com/cjavdev/terraform-provider-spotted/internal/importpath"
 )
 
 func TestParseID(t *testing.T) {

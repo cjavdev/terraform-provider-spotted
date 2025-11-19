@@ -5,13 +5,13 @@ package playlist
 import (
 	"context"
 
+	"github.com/cjavdev/terraform-provider-spotted/internal/customfield"
 	"github.com/hashicorp/terraform-plugin-framework-timetypes/timetypes"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
-	"github.com/stainless-sdks/spotted-terraform/internal/customfield"
 )
 
 var _ datasource.DataSourceWithConfigValidators = (*PlaylistDataSource)(nil)

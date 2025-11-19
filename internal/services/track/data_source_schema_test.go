@@ -6,8 +6,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/stainless-sdks/spotted-terraform/internal/services/track"
-	"github.com/stainless-sdks/spotted-terraform/internal/test_helpers"
+	"github.com/cjavdev/terraform-provider-spotted/internal/services/track"
+	"github.com/cjavdev/terraform-provider-spotted/internal/test_helpers"
 )
 
 func TestTrackDataSourceModelSchemaParity(t *testing.T) {
