@@ -5,6 +5,7 @@ package audio_analysis
 import (
 	"context"
 
+	"github.com/cjavdev/terraform-provider-spotted/internal/customfield"
 	"github.com/hashicorp/terraform-plugin-framework-validators/float64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
@@ -12,7 +13,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
-	"github.com/stainless-sdks/spotted-terraform/internal/customfield"
 )
 
 var _ datasource.DataSourceWithConfigValidators = (*AudioAnalysisDataSource)(nil)

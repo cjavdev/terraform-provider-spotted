@@ -3,10 +3,10 @@
 package playlist
 
 import (
+	"github.com/cjavdev/terraform-provider-spotted/internal/apijson"
+	"github.com/cjavdev/terraform-provider-spotted/internal/customfield"
 	"github.com/hashicorp/terraform-plugin-framework-timetypes/timetypes"
 	"github.com/hashicorp/terraform-plugin-framework/types"
-	"github.com/stainless-sdks/spotted-terraform/internal/apijson"
-	"github.com/stainless-sdks/spotted-terraform/internal/customfield"
 )
 
 type PlaylistModel struct {

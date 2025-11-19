@@ -3,8 +3,8 @@
 package me_player_queue
 
 import (
+	"github.com/cjavdev/terraform-provider-spotted/internal/customfield"
 	"github.com/hashicorp/terraform-plugin-framework/types"
-	"github.com/stainless-sdks/spotted-terraform/internal/customfield"
 )
 
 type MePlayerQueueDataSourceModel struct {

@@ -21,8 +21,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/diag"
 	"github.com/hashicorp/terraform-plugin-framework/types/basetypes"
 
-	"github.com/stainless-sdks/spotted-terraform/internal/apijson"
-	"github.com/stainless-sdks/spotted-terraform/internal/customfield"
+	"github.com/cjavdev/terraform-provider-spotted/internal/apijson"
+	"github.com/cjavdev/terraform-provider-spotted/internal/customfield"
 )
 
 var encoders sync.Map // map[encoderEntry]encoderFunc

@@ -3,8 +3,8 @@
 package playlist_track
 
 import (
+	"github.com/cjavdev/terraform-provider-spotted/internal/apijson"
 	"github.com/hashicorp/terraform-plugin-framework/types"
-	"github.com/stainless-sdks/spotted-terraform/internal/apijson"
 )
 
 type PlaylistTrackModel struct {

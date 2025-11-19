@@ -5,9 +5,9 @@ package me
 import (
 	"context"
 
+	"github.com/cjavdev/terraform-provider-spotted/internal/customfield"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
-	"github.com/stainless-sdks/spotted-terraform/internal/customfield"
 )
 
 var _ datasource.DataSourceWithConfigValidators = (*MeDataSource)(nil)

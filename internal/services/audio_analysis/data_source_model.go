@@ -3,8 +3,8 @@
 package audio_analysis
 
 import (
+	"github.com/cjavdev/terraform-provider-spotted/internal/customfield"
 	"github.com/hashicorp/terraform-plugin-framework/types"
-	"github.com/stainless-sdks/spotted-terraform/internal/customfield"
 )
 
 type AudioAnalysisDataSourceModel struct {

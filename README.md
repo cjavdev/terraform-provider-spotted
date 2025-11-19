@@ -1,6 +1,6 @@
 # Spotted Terraform Provider
 
-The [Spotted Terraform provider](https://registry.terraform.io/providers/stainless-sdks/spotted/latest/docs) provides convenient access to
+The [Spotted Terraform provider](https://registry.terraform.io/providers/cjavdev/spotted/latest/docs) provides convenient access to
 the [Spotted REST API](https://spotted.stldocs.com) from Terraform.
 
 It is generated with [Stainless](https://www.stainless.com/).
@@ -14,12 +14,14 @@ on Hashicorp's website.
 
 Add the following to your `main.tf` file:
 
+<!-- x-release-please-start-version -->
+
 ```hcl
 # Declare the provider and version
 terraform {
   required_providers {
     spotted = {
-      source  = "stainless-sdks/spotted"
+      source  = "cjavdev/spotted"
       version = "~> 0.0.1"
     }
   }
@@ -42,10 +44,12 @@ resource "spotted_playlist" "example_playlist" {
 }
 ```
 
+<!-- x-release-please-end -->
+
 Initialize your project by running `terraform init` in the directory.
 
 Additional examples can be found in the [./examples](./examples) folder within this repository, and you can
-refer to the full documentation on [the Terraform Registry](https://registry.terraform.io/providers/stainless-sdks/spotted/latest/docs).
+refer to the full documentation on [the Terraform Registry](https://registry.terraform.io/providers/cjavdev/spotted/latest/docs).
 
 ### Provider Options
 
@@ -67,7 +71,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/spotted-terraform/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/cjavdev/terraform-provider-spotted/issues) with questions, bugs, or suggestions.
 
 ## Contributing
 

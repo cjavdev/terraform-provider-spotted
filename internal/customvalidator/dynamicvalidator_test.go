@@ -2,7 +2,7 @@ package customvalidator_test
 
 import (
 	"context"
-	"github.com/stainless-sdks/spotted-terraform/internal/customvalidator"
+	"github.com/cjavdev/terraform-provider-spotted/internal/customvalidator"
 	"math/big"
 	"testing"
 

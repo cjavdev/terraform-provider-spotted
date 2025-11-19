@@ -7,10 +7,10 @@ import (
 
 	"github.com/cjavdev/spotted-go"
 	"github.com/cjavdev/spotted-go/packages/param"
+	"github.com/cjavdev/terraform-provider-spotted/internal/customfield"
 	"github.com/hashicorp/terraform-plugin-framework-timetypes/timetypes"
 	"github.com/hashicorp/terraform-plugin-framework/diag"
 	"github.com/hashicorp/terraform-plugin-framework/types"
-	"github.com/stainless-sdks/spotted-terraform/internal/customfield"
 )
 
 type MeAudiobooksItemsListDataSourceEnvelope struct {
