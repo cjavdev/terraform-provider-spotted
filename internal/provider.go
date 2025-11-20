@@ -24,8 +24,6 @@ import (
 	"github.com/cjavdev/terraform-provider-spotted/internal/services/me_playlist"
 	"github.com/cjavdev/terraform-provider-spotted/internal/services/me_show"
 	"github.com/cjavdev/terraform-provider-spotted/internal/services/me_track"
-	"github.com/cjavdev/terraform-provider-spotted/internal/services/playlist"
-	"github.com/cjavdev/terraform-provider-spotted/internal/services/playlist_track"
 	"github.com/cjavdev/terraform-provider-spotted/internal/services/recommendation"
 	"github.com/cjavdev/terraform-provider-spotted/internal/services/show"
 	"github.com/cjavdev/terraform-provider-spotted/internal/services/track"
@@ -130,8 +128,6 @@ func (p *SpottedProvider) ConfigValidators(_ context.Context) []provider.ConfigV
 
 func (p *SpottedProvider) Resources(ctx context.Context) []func() resource.Resource {
 	return []func() resource.Resource{
-		playlist.NewResource,
-		playlist_track.NewResource,
 		user_playlist.NewResource,
 	}
 }
@@ -153,8 +149,6 @@ func (p *SpottedProvider) DataSources(ctx context.Context) []func() datasource.D
 		me_player_queue.NewMePlayerQueueDataSource,
 		chapter.NewChapterDataSource,
 		track.NewTrackDataSource,
-		playlist.NewPlaylistDataSource,
-		playlist_track.NewPlaylistTracksDataSource,
 		user_playlist.NewUserPlaylistsDataSource,
 		browse_category.NewBrowseCategoryDataSource,
 		audio_feature.NewAudioFeatureDataSource,
