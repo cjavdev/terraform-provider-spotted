@@ -38,19 +38,19 @@ func (m *UserPlaylistsDataSourceModel) toListParams(_ context.Context) (params s
 }
 
 type UserPlaylistsItemsDataSourceModel struct {
-	ID                                   types.String                                                       `tfsdk:"id" json:"id,computed"`
-	ComponentsSchemasPropertiesPublished types.Bool                                                         `tfsdk:"components_schemas_properties_published" json:"$.components.schemas.*.properties.published,computed"`
-	Collaborative                        types.Bool                                                         `tfsdk:"collaborative" json:"collaborative,computed"`
-	Description                          types.String                                                       `tfsdk:"description" json:"description,computed"`
-	ExternalURLs                         customfield.NestedObject[UserPlaylistsExternalURLsDataSourceModel] `tfsdk:"external_urls" json:"external_urls,computed"`
-	Href                                 types.String                                                       `tfsdk:"href" json:"href,computed"`
-	Images                               customfield.NestedObjectList[UserPlaylistsImagesDataSourceModel]   `tfsdk:"images" json:"images,computed"`
-	Name                                 types.String                                                       `tfsdk:"name" json:"name,computed"`
-	Owner                                customfield.NestedObject[UserPlaylistsOwnerDataSourceModel]        `tfsdk:"owner" json:"owner,computed"`
-	SnapshotID                           types.String                                                       `tfsdk:"snapshot_id" json:"snapshot_id,computed"`
-	Tracks                               customfield.NestedObject[UserPlaylistsTracksDataSourceModel]       `tfsdk:"tracks" json:"tracks,computed"`
-	Type                                 types.String                                                       `tfsdk:"type" json:"type,computed"`
-	Uri                                  types.String                                                       `tfsdk:"uri" json:"uri,computed"`
+	ID            types.String                                                       `tfsdk:"id" json:"id,computed"`
+	Collaborative types.Bool                                                         `tfsdk:"collaborative" json:"collaborative,computed"`
+	Description   types.String                                                       `tfsdk:"description" json:"description,computed"`
+	ExternalURLs  customfield.NestedObject[UserPlaylistsExternalURLsDataSourceModel] `tfsdk:"external_urls" json:"external_urls,computed"`
+	Href          types.String                                                       `tfsdk:"href" json:"href,computed"`
+	Images        customfield.NestedObjectList[UserPlaylistsImagesDataSourceModel]   `tfsdk:"images" json:"images,computed"`
+	Name          types.String                                                       `tfsdk:"name" json:"name,computed"`
+	Owner         customfield.NestedObject[UserPlaylistsOwnerDataSourceModel]        `tfsdk:"owner" json:"owner,computed"`
+	Published     types.Bool                                                         `tfsdk:"published" json:"published,computed"`
+	SnapshotID    types.String                                                       `tfsdk:"snapshot_id" json:"snapshot_id,computed"`
+	Tracks        customfield.NestedObject[UserPlaylistsTracksDataSourceModel]       `tfsdk:"tracks" json:"tracks,computed"`
+	Type          types.String                                                       `tfsdk:"type" json:"type,computed"`
+	Uri           types.String                                                       `tfsdk:"uri" json:"uri,computed"`
 }
 
 type UserPlaylistsExternalURLsDataSourceModel struct {
