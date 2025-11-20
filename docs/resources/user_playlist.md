@@ -38,13 +38,13 @@ resource "spotted_user_playlist" "example_user_playlist" {
 
 ### Read-Only
 
-- `components_schemas_properties_published` (Boolean) The playlist's public/private status (if it is added to the user's profile): `true` the playlist is public, `false` the playlist is private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `external_urls` (Attributes) Known external URLs for this playlist. (see [below for nested schema](#nestedatt--external_urls))
 - `followers` (Attributes) Information about the followers of the playlist. (see [below for nested schema](#nestedatt--followers))
 - `href` (String) A link to the Web API endpoint providing full details of the playlist.
 - `id` (String) The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) for the playlist.
 - `images` (Attributes List) Images for the playlist. The array may be empty or contain up to three images. The images are returned by size in descending order. See [Working with Playlists](/documentation/web-api/concepts/playlists). _**Note**: If returned, the source URL for the image (`url`) is temporary and will expire in less than a day._ (see [below for nested schema](#nestedatt--images))
 - `owner` (Attributes) The user who owns the playlist (see [below for nested schema](#nestedatt--owner))
+- `published` (Boolean) The playlist's public/private status (if it is added to the user's profile): `true` the playlist is public, `false` the playlist is private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `snapshot_id` (String) The version identifier for the current playlist. Can be supplied in other requests to target a specific playlist version
 - `tracks` (Attributes) The tracks of the playlist. (see [below for nested schema](#nestedatt--tracks))
 - `type` (String) The object type: "playlist"
