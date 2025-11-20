@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.0 (2025-11-20)
+
+Full Changelog: [v0.4.0...v0.5.0](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.4.0...v0.5.0)
+
+### Features
+
+* **api:** manual updates ([f33ec36](https://github.com/cjavdev/terraform-provider-spotted/commit/f33ec369666f08e274705d8c4d148d62f4a48416))
+* **api:** rename public to published for java ([795578d](https://github.com/cjavdev/terraform-provider-spotted/commit/795578db8f9055dada273a75456a623bd761364c))
+
 ## 0.4.0 (2025-11-20)
 
 Full Changelog: [v0.3.0...v0.4.0](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.3.0...v0.4.0)
