@@ -35,11 +35,11 @@ provider "spotted" {
 }
 
 # Configure a resource
-resource "spotted_playlist" "example_playlist" {
-  playlist_id = "3cEYpjA9oz9GiPac4AsH4n"
+resource "spotted_user_playlist" "example_user_playlist" {
+  user_id = "smedjan"
+  name = "New Playlist"
   collaborative = true
-  description = "Updated playlist description"
-  name = "Updated Playlist Name"
+  description = "New playlist description"
   public = false
 }
 ```
