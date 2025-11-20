@@ -35,12 +35,12 @@ provider "spotted" {
 }
 
 # Configure a resource
-resource "spotted_user_playlist" "example_user_playlist" {
-  user_id = "smedjan"
-  name = "New Playlist"
-  paths_request_body_content_application_json_schema_properties_published = true
+resource "spotted_playlist" "example_playlist" {
+  playlist_id = "3cEYpjA9oz9GiPac4AsH4n"
   collaborative = true
-  description = "New playlist description"
+  description = "Updated playlist description"
+  name = "Updated Playlist Name"
+  public = false
 }
 ```
 
