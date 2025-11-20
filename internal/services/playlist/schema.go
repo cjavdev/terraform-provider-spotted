@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package user_playlist
+package playlist
 
 import (
 	"context"
@@ -10,47 +10,37 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 )
 
-var _ resource.ResourceWithConfigValidators = (*UserPlaylistResource)(nil)
+var _ resource.ResourceWithConfigValidators = (*PlaylistResource)(nil)
 
 func ResourceSchema(ctx context.Context) schema.Schema {
 	return schema.Schema{
 		Attributes: map[string]schema.Attribute{
-			"id": schema.StringAttribute{
-				Description:   "The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) for the playlist.",
-				Computed:      true,
-				PlanModifiers: []planmodifier.String{stringplanmodifier.UseStateForUnknown(), stringplanmodifier.RequiresReplace()},
-			},
-			"user_id": schema.StringAttribute{
-				Description:   "The user's [Spotify user ID](/documentation/web-api/concepts/spotify-uris-ids).",
-				Required:      true,
-				PlanModifiers: []planmodifier.String{stringplanmodifier.RequiresReplace()},
-			},
-			"name": schema.StringAttribute{
-				Description:   "The name for the new playlist, for example `\"Your Coolest Playlist\"`. This name does not need to be unique; a user may have several playlists with the same name.",
+			"playlist_id": schema.StringAttribute{
+				Description:   "The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of the playlist.",
 				Required:      true,
 				PlanModifiers: []planmodifier.String{stringplanmodifier.RequiresReplace()},
 			},
 			"collaborative": schema.BoolAttribute{
-				Description:   "Defaults to `false`. If `true` the playlist will be collaborative. _**Note**: to create a collaborative playlist you must also set `public` to `false`. To create collaborative playlists you must have granted `playlist-modify-private` and `playlist-modify-public` [scopes](/documentation/web-api/concepts/scopes/#list-of-scopes)._",
-				Optional:      true,
-				PlanModifiers: []planmodifier.Bool{boolplanmodifier.RequiresReplace()},
+				Description: "If `true`, the playlist will become collaborative and other users will be able to modify the playlist in their Spotify client. <br/>\n_**Note**: You can only set `collaborative` to `true` on non-public playlists._",
+				Optional:    true,
 			},
 			"description": schema.StringAttribute{
-				Description:   "value for playlist description as displayed in Spotify Clients and in the Web API.",
-				Optional:      true,
-				PlanModifiers: []planmodifier.String{stringplanmodifier.RequiresReplace()},
+				Description: "Value for playlist description as displayed in Spotify Clients and in the Web API.",
+				Optional:    true,
+			},
+			"name": schema.StringAttribute{
+				Description: "The new name for the playlist, for example `\"My New Playlist Title\"`",
+				Optional:    true,
 			},
 			"public": schema.BoolAttribute{
-				Description:   "Defaults to `true`. The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private. To be able to create private playlists, the user must have granted the `playlist-modify-private` [scope](/documentation/web-api/concepts/scopes/#list-of-scopes). For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
-				Optional:      true,
-				PlanModifiers: []planmodifier.Bool{boolplanmodifier.RequiresReplace()},
+				Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
+				Optional:    true,
 			},
 			"components_schemas_properties_published": schema.BoolAttribute{
 				Description: "The playlist's public/private status (if it is added to the user's profile): `true` the playlist is public, `false` the playlist is private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
@@ -58,6 +48,10 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 			},
 			"href": schema.StringAttribute{
 				Description: "A link to the Web API endpoint providing full details of the playlist.",
+				Computed:    true,
+			},
+			"id": schema.StringAttribute{
+				Description: "The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) for the playlist.",
 				Computed:    true,
 			},
 			"snapshot_id": schema.StringAttribute{
@@ -75,7 +69,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 			"external_urls": schema.SingleNestedAttribute{
 				Description: "Known external URLs for this playlist.",
 				Computed:    true,
-				CustomType:  customfield.NewNestedObjectType[UserPlaylistExternalURLsModel](ctx),
+				CustomType:  customfield.NewNestedObjectType[PlaylistExternalURLsModel](ctx),
 				Attributes: map[string]schema.Attribute{
 					"spotify": schema.StringAttribute{
 						Description: "The [Spotify URL](/documentation/web-api/concepts/spotify-uris-ids) for the object.",
@@ -86,7 +80,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 			"followers": schema.SingleNestedAttribute{
 				Description: "Information about the followers of the playlist.",
 				Computed:    true,
-				CustomType:  customfield.NewNestedObjectType[UserPlaylistFollowersModel](ctx),
+				CustomType:  customfield.NewNestedObjectType[PlaylistFollowersModel](ctx),
 				Attributes: map[string]schema.Attribute{
 					"href": schema.StringAttribute{
 						Description: "This will always be set to null, as the Web API does not support it at the moment.",
@@ -101,7 +95,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 			"images": schema.ListNestedAttribute{
 				Description: "Images for the playlist. The array may be empty or contain up to three images. The images are returned by size in descending order. See [Working with Playlists](/documentation/web-api/concepts/playlists). _**Note**: If returned, the source URL for the image (`url`) is temporary and will expire in less than a day._",
 				Computed:    true,
-				CustomType:  customfield.NewNestedObjectListType[UserPlaylistImagesModel](ctx),
+				CustomType:  customfield.NewNestedObjectListType[PlaylistImagesModel](ctx),
 				NestedObject: schema.NestedAttributeObject{
 					Attributes: map[string]schema.Attribute{
 						"height": schema.Int64Attribute{
@@ -122,7 +116,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 			"owner": schema.SingleNestedAttribute{
 				Description: "The user who owns the playlist",
 				Computed:    true,
-				CustomType:  customfield.NewNestedObjectType[UserPlaylistOwnerModel](ctx),
+				CustomType:  customfield.NewNestedObjectType[PlaylistOwnerModel](ctx),
 				Attributes: map[string]schema.Attribute{
 					"id": schema.StringAttribute{
 						Description: "The [Spotify user ID](/documentation/web-api/concepts/spotify-uris-ids) for this user.",
@@ -131,7 +125,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 					"external_urls": schema.SingleNestedAttribute{
 						Description: "Known public external URLs for this user.",
 						Computed:    true,
-						CustomType:  customfield.NewNestedObjectType[UserPlaylistOwnerExternalURLsModel](ctx),
+						CustomType:  customfield.NewNestedObjectType[PlaylistOwnerExternalURLsModel](ctx),
 						Attributes: map[string]schema.Attribute{
 							"spotify": schema.StringAttribute{
 								Description: "The [Spotify URL](/documentation/web-api/concepts/spotify-uris-ids) for the object.",
@@ -163,7 +157,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 			"tracks": schema.SingleNestedAttribute{
 				Description: "The tracks of the playlist.",
 				Computed:    true,
-				CustomType:  customfield.NewNestedObjectType[UserPlaylistTracksModel](ctx),
+				CustomType:  customfield.NewNestedObjectType[PlaylistTracksModel](ctx),
 				Attributes: map[string]schema.Attribute{
 					"href": schema.StringAttribute{
 						Description: "A link to the Web API endpoint returning the full result of the request",
@@ -191,7 +185,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 					},
 					"items": schema.ListNestedAttribute{
 						Computed:   true,
-						CustomType: customfield.NewNestedObjectListType[UserPlaylistTracksItemsModel](ctx),
+						CustomType: customfield.NewNestedObjectListType[PlaylistTracksItemsModel](ctx),
 						NestedObject: schema.NestedAttributeObject{
 							Attributes: map[string]schema.Attribute{
 								"added_at": schema.StringAttribute{
@@ -202,7 +196,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 								"added_by": schema.SingleNestedAttribute{
 									Description: "The Spotify user who added the track or episode. _**Note**: some very old playlists may return `null` in this field._",
 									Computed:    true,
-									CustomType:  customfield.NewNestedObjectType[UserPlaylistTracksItemsAddedByModel](ctx),
+									CustomType:  customfield.NewNestedObjectType[PlaylistTracksItemsAddedByModel](ctx),
 									Attributes: map[string]schema.Attribute{
 										"id": schema.StringAttribute{
 											Description: "The [Spotify user ID](/documentation/web-api/concepts/spotify-uris-ids) for this user.",
@@ -211,7 +205,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 										"external_urls": schema.SingleNestedAttribute{
 											Description: "Known public external URLs for this user.",
 											Computed:    true,
-											CustomType:  customfield.NewNestedObjectType[UserPlaylistTracksItemsAddedByExternalURLsModel](ctx),
+											CustomType:  customfield.NewNestedObjectType[PlaylistTracksItemsAddedByExternalURLsModel](ctx),
 											Attributes: map[string]schema.Attribute{
 												"spotify": schema.StringAttribute{
 													Description: "The [Spotify URL](/documentation/web-api/concepts/spotify-uris-ids) for the object.",
@@ -243,7 +237,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 								"track": schema.SingleNestedAttribute{
 									Description: "Information about the track or episode.",
 									Computed:    true,
-									CustomType:  customfield.NewNestedObjectType[UserPlaylistTracksItemsTrackModel](ctx),
+									CustomType:  customfield.NewNestedObjectType[PlaylistTracksItemsTrackModel](ctx),
 									Attributes: map[string]schema.Attribute{
 										"id": schema.StringAttribute{
 											Description: "The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) for the track.",
@@ -252,7 +246,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 										"album": schema.SingleNestedAttribute{
 											Description: "The album on which the track appears. The album object includes a link in `href` to full information about the album.",
 											Computed:    true,
-											CustomType:  customfield.NewNestedObjectType[UserPlaylistTracksItemsTrackAlbumModel](ctx),
+											CustomType:  customfield.NewNestedObjectType[PlaylistTracksItemsTrackAlbumModel](ctx),
 											Attributes: map[string]schema.Attribute{
 												"id": schema.StringAttribute{
 													Description: "The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) for the album.",
@@ -272,7 +266,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 												"artists": schema.ListNestedAttribute{
 													Description: "The artists of the album. Each artist object includes a link in `href` to more detailed information about the artist.",
 													Computed:    true,
-													CustomType:  customfield.NewNestedObjectListType[UserPlaylistTracksItemsTrackAlbumArtistsModel](ctx),
+													CustomType:  customfield.NewNestedObjectListType[PlaylistTracksItemsTrackAlbumArtistsModel](ctx),
 													NestedObject: schema.NestedAttributeObject{
 														Attributes: map[string]schema.Attribute{
 															"id": schema.StringAttribute{
@@ -282,7 +276,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 															"external_urls": schema.SingleNestedAttribute{
 																Description: "Known external URLs for this artist.",
 																Computed:    true,
-																CustomType:  customfield.NewNestedObjectType[UserPlaylistTracksItemsTrackAlbumArtistsExternalURLsModel](ctx),
+																CustomType:  customfield.NewNestedObjectType[PlaylistTracksItemsTrackAlbumArtistsExternalURLsModel](ctx),
 																Attributes: map[string]schema.Attribute{
 																	"spotify": schema.StringAttribute{
 																		Description: "The [Spotify URL](/documentation/web-api/concepts/spotify-uris-ids) for the object.",
@@ -321,7 +315,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 												"external_urls": schema.SingleNestedAttribute{
 													Description: "Known external URLs for this album.",
 													Computed:    true,
-													CustomType:  customfield.NewNestedObjectType[UserPlaylistTracksItemsTrackAlbumExternalURLsModel](ctx),
+													CustomType:  customfield.NewNestedObjectType[PlaylistTracksItemsTrackAlbumExternalURLsModel](ctx),
 													Attributes: map[string]schema.Attribute{
 														"spotify": schema.StringAttribute{
 															Description: "The [Spotify URL](/documentation/web-api/concepts/spotify-uris-ids) for the object.",
@@ -336,7 +330,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 												"images": schema.ListNestedAttribute{
 													Description: "The cover art for the album in various sizes, widest first.",
 													Computed:    true,
-													CustomType:  customfield.NewNestedObjectListType[UserPlaylistTracksItemsTrackAlbumImagesModel](ctx),
+													CustomType:  customfield.NewNestedObjectListType[PlaylistTracksItemsTrackAlbumImagesModel](ctx),
 													NestedObject: schema.NestedAttributeObject{
 														Attributes: map[string]schema.Attribute{
 															"height": schema.Int64Attribute{
@@ -391,7 +385,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 												"restrictions": schema.SingleNestedAttribute{
 													Description: "Included in the response when a content restriction is applied.",
 													Computed:    true,
-													CustomType:  customfield.NewNestedObjectType[UserPlaylistTracksItemsTrackAlbumRestrictionsModel](ctx),
+													CustomType:  customfield.NewNestedObjectType[PlaylistTracksItemsTrackAlbumRestrictionsModel](ctx),
 													Attributes: map[string]schema.Attribute{
 														"reason": schema.StringAttribute{
 															Description: "The reason for the restriction. Albums may be restricted if the content is not available in a given market, to the user's subscription type, or when the user's account is set to not play explicit content.\nAdditional reasons may be added in the future.\nAvailable values: \"market\", \"product\", \"explicit\".",
@@ -411,7 +405,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 										"artists": schema.ListNestedAttribute{
 											Description: "The artists who performed the track. Each artist object includes a link in `href` to more detailed information about the artist.",
 											Computed:    true,
-											CustomType:  customfield.NewNestedObjectListType[UserPlaylistTracksItemsTrackArtistsModel](ctx),
+											CustomType:  customfield.NewNestedObjectListType[PlaylistTracksItemsTrackArtistsModel](ctx),
 											NestedObject: schema.NestedAttributeObject{
 												Attributes: map[string]schema.Attribute{
 													"id": schema.StringAttribute{
@@ -421,7 +415,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 													"external_urls": schema.SingleNestedAttribute{
 														Description: "Known external URLs for this artist.",
 														Computed:    true,
-														CustomType:  customfield.NewNestedObjectType[UserPlaylistTracksItemsTrackArtistsExternalURLsModel](ctx),
+														CustomType:  customfield.NewNestedObjectType[PlaylistTracksItemsTrackArtistsExternalURLsModel](ctx),
 														Attributes: map[string]schema.Attribute{
 															"spotify": schema.StringAttribute{
 																Description: "The [Spotify URL](/documentation/web-api/concepts/spotify-uris-ids) for the object.",
@@ -472,7 +466,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 										"external_ids": schema.SingleNestedAttribute{
 											Description: "Known external IDs for the track.",
 											Computed:    true,
-											CustomType:  customfield.NewNestedObjectType[UserPlaylistTracksItemsTrackExternalIDsModel](ctx),
+											CustomType:  customfield.NewNestedObjectType[PlaylistTracksItemsTrackExternalIDsModel](ctx),
 											Attributes: map[string]schema.Attribute{
 												"ean": schema.StringAttribute{
 													Description: "[International Article Number](http://en.wikipedia.org/wiki/International_Article_Number_%28EAN%29)",
@@ -491,7 +485,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 										"external_urls": schema.SingleNestedAttribute{
 											Description: "Known external URLs for this track.",
 											Computed:    true,
-											CustomType:  customfield.NewNestedObjectType[UserPlaylistTracksItemsTrackExternalURLsModel](ctx),
+											CustomType:  customfield.NewNestedObjectType[PlaylistTracksItemsTrackExternalURLsModel](ctx),
 											Attributes: map[string]schema.Attribute{
 												"spotify": schema.StringAttribute{
 													Description: "The [Spotify URL](/documentation/web-api/concepts/spotify-uris-ids) for the object.",
@@ -514,7 +508,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 										"linked_from": schema.SingleNestedAttribute{
 											Description: "Part of the response when [Track Relinking](/documentation/web-api/concepts/track-relinking) is applied, and the requested track has been replaced with different track. The track in the `linked_from` object contains information about the originally requested track.",
 											Computed:    true,
-											CustomType:  customfield.NewNestedObjectType[UserPlaylistTracksItemsTrackLinkedFromModel](ctx),
+											CustomType:  customfield.NewNestedObjectType[PlaylistTracksItemsTrackLinkedFromModel](ctx),
 											Attributes: map[string]schema.Attribute{
 												"id": schema.StringAttribute{
 													Description: "The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) for the track.",
@@ -523,7 +517,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 												"external_urls": schema.SingleNestedAttribute{
 													Description: "Known external URLs for this track.",
 													Computed:    true,
-													CustomType:  customfield.NewNestedObjectType[UserPlaylistTracksItemsTrackLinkedFromExternalURLsModel](ctx),
+													CustomType:  customfield.NewNestedObjectType[PlaylistTracksItemsTrackLinkedFromExternalURLsModel](ctx),
 													Attributes: map[string]schema.Attribute{
 														"spotify": schema.StringAttribute{
 															Description: "The [Spotify URL](/documentation/web-api/concepts/spotify-uris-ids) for the object.",
@@ -561,7 +555,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 										"restrictions": schema.SingleNestedAttribute{
 											Description: "Included in the response when a content restriction is applied.",
 											Computed:    true,
-											CustomType:  customfield.NewNestedObjectType[UserPlaylistTracksItemsTrackRestrictionsModel](ctx),
+											CustomType:  customfield.NewNestedObjectType[PlaylistTracksItemsTrackRestrictionsModel](ctx),
 											Attributes: map[string]schema.Attribute{
 												"reason": schema.StringAttribute{
 													Description: "The reason for the restriction. Supported values:\n- `market` - The content item is not available in the given market.\n- `product` - The content item is not available for the user's subscription type.\n- `explicit` - The content item is explicit and the user's account is set to not play explicit content.\n\nAdditional reasons may be added in the future.\n**Note**: If you use this field, make sure that your application safely handles unknown values.",
@@ -600,7 +594,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 										"images": schema.ListNestedAttribute{
 											Description: "The cover art for the episode in various sizes, widest first.",
 											Computed:    true,
-											CustomType:  customfield.NewNestedObjectListType[UserPlaylistTracksItemsTrackImagesModel](ctx),
+											CustomType:  customfield.NewNestedObjectListType[PlaylistTracksItemsTrackImagesModel](ctx),
 											NestedObject: schema.NestedAttributeObject{
 												Attributes: map[string]schema.Attribute{
 													"height": schema.Int64Attribute{
@@ -646,7 +640,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 										"show": schema.SingleNestedAttribute{
 											Description: "The show on which the episode belongs.",
 											Computed:    true,
-											CustomType:  customfield.NewNestedObjectType[UserPlaylistTracksItemsTrackShowModel](ctx),
+											CustomType:  customfield.NewNestedObjectType[PlaylistTracksItemsTrackShowModel](ctx),
 											Attributes: map[string]schema.Attribute{
 												"id": schema.StringAttribute{
 													Description: "The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) for the show.",
@@ -661,7 +655,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 												"copyrights": schema.ListNestedAttribute{
 													Description: "The copyright statements of the show.",
 													Computed:    true,
-													CustomType:  customfield.NewNestedObjectListType[UserPlaylistTracksItemsTrackShowCopyrightsModel](ctx),
+													CustomType:  customfield.NewNestedObjectListType[PlaylistTracksItemsTrackShowCopyrightsModel](ctx),
 													NestedObject: schema.NestedAttributeObject{
 														Attributes: map[string]schema.Attribute{
 															"text": schema.StringAttribute{
@@ -686,7 +680,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 												"external_urls": schema.SingleNestedAttribute{
 													Description: "External URLs for this show.",
 													Computed:    true,
-													CustomType:  customfield.NewNestedObjectType[UserPlaylistTracksItemsTrackShowExternalURLsModel](ctx),
+													CustomType:  customfield.NewNestedObjectType[PlaylistTracksItemsTrackShowExternalURLsModel](ctx),
 													Attributes: map[string]schema.Attribute{
 														"spotify": schema.StringAttribute{
 															Description: "The [Spotify URL](/documentation/web-api/concepts/spotify-uris-ids) for the object.",
@@ -705,7 +699,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 												"images": schema.ListNestedAttribute{
 													Description: "The cover art for the show in various sizes, widest first.",
 													Computed:    true,
-													CustomType:  customfield.NewNestedObjectListType[UserPlaylistTracksItemsTrackShowImagesModel](ctx),
+													CustomType:  customfield.NewNestedObjectListType[PlaylistTracksItemsTrackShowImagesModel](ctx),
 													NestedObject: schema.NestedAttributeObject{
 														Attributes: map[string]schema.Attribute{
 															"height": schema.Int64Attribute{
@@ -770,7 +764,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 										"resume_point": schema.SingleNestedAttribute{
 											Description: "The user's most recent position in the episode. Set if the supplied access token is a user token and has the scope 'user-read-playback-position'.",
 											Computed:    true,
-											CustomType:  customfield.NewNestedObjectType[UserPlaylistTracksItemsTrackResumePointModel](ctx),
+											CustomType:  customfield.NewNestedObjectType[PlaylistTracksItemsTrackResumePointModel](ctx),
 											Attributes: map[string]schema.Attribute{
 												"fully_played": schema.BoolAttribute{
 													Description: "Whether or not the episode has been fully played by the user.",
@@ -793,10 +787,10 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 	}
 }
 
-func (r *UserPlaylistResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
+func (r *PlaylistResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = ResourceSchema(ctx)
 }
 
-func (r *UserPlaylistResource) ConfigValidators(_ context.Context) []resource.ConfigValidator {
+func (r *PlaylistResource) ConfigValidators(_ context.Context) []resource.ConfigValidator {
 	return []resource.ConfigValidator{}
 }
