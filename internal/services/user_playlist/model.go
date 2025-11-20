@@ -10,21 +10,22 @@ import (
 )
 
 type UserPlaylistModel struct {
-	ID            types.String                                            `tfsdk:"id" json:"id,computed"`
-	UserID        types.String                                            `tfsdk:"user_id" path:"user_id,required"`
-	Name          types.String                                            `tfsdk:"name" json:"name,required"`
-	Collaborative types.Bool                                              `tfsdk:"collaborative" json:"collaborative,optional"`
-	Description   types.String                                            `tfsdk:"description" json:"description,optional"`
-	Public        types.Bool                                              `tfsdk:"public" json:"public,optional"`
-	Href          types.String                                            `tfsdk:"href" json:"href,computed"`
-	SnapshotID    types.String                                            `tfsdk:"snapshot_id" json:"snapshot_id,computed"`
-	Type          types.String                                            `tfsdk:"type" json:"type,computed"`
-	Uri           types.String                                            `tfsdk:"uri" json:"uri,computed"`
-	ExternalURLs  customfield.NestedObject[UserPlaylistExternalURLsModel] `tfsdk:"external_urls" json:"external_urls,computed"`
-	Followers     customfield.NestedObject[UserPlaylistFollowersModel]    `tfsdk:"followers" json:"followers,computed"`
-	Images        customfield.NestedObjectList[UserPlaylistImagesModel]   `tfsdk:"images" json:"images,computed"`
-	Owner         customfield.NestedObject[UserPlaylistOwnerModel]        `tfsdk:"owner" json:"owner,computed"`
-	Tracks        customfield.NestedObject[UserPlaylistTracksModel]       `tfsdk:"tracks" json:"tracks,computed"`
+	ID                                  types.String                                            `tfsdk:"id" json:"id,computed"`
+	UserID                              types.String                                            `tfsdk:"user_id" path:"user_id,required"`
+	Name                                types.String                                            `tfsdk:"name" json:"name,required"`
+	Collaborative                       types.Bool                                              `tfsdk:"collaborative" json:"collaborative,optional"`
+	Description                         types.String                                            `tfsdk:"description" json:"description,optional"`
+	Public                              types.Bool                                              `tfsdk:"public" json:"public,optional"`
+	ComponentsSchemasPropertiesIsPublic types.Bool                                              `tfsdk:"components_schemas_properties_is_public" json:"$.components.schemas.*.properties.is_public,computed"`
+	Href                                types.String                                            `tfsdk:"href" json:"href,computed"`
+	SnapshotID                          types.String                                            `tfsdk:"snapshot_id" json:"snapshot_id,computed"`
+	Type                                types.String                                            `tfsdk:"type" json:"type,computed"`
+	Uri                                 types.String                                            `tfsdk:"uri" json:"uri,computed"`
+	ExternalURLs                        customfield.NestedObject[UserPlaylistExternalURLsModel] `tfsdk:"external_urls" json:"external_urls,computed"`
+	Followers                           customfield.NestedObject[UserPlaylistFollowersModel]    `tfsdk:"followers" json:"followers,computed"`
+	Images                              customfield.NestedObjectList[UserPlaylistImagesModel]   `tfsdk:"images" json:"images,computed"`
+	Owner                               customfield.NestedObject[UserPlaylistOwnerModel]        `tfsdk:"owner" json:"owner,computed"`
+	Tracks                              customfield.NestedObject[UserPlaylistTracksModel]       `tfsdk:"tracks" json:"tracks,computed"`
 }
 
 func (m UserPlaylistModel) MarshalJSON() (data []byte, err error) {

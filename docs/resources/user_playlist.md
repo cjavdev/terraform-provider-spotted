@@ -38,6 +38,7 @@ resource "spotted_user_playlist" "example_user_playlist" {
 
 ### Read-Only
 
+- `components_schemas_properties_is_public` (Boolean) The playlist's public/private status (if it is added to the user's profile): `true` the playlist is public, `false` the playlist is private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `external_urls` (Attributes) Known external URLs for this playlist. (see [below for nested schema](#nestedatt--external_urls))
 - `followers` (Attributes) Information about the followers of the playlist. (see [below for nested schema](#nestedatt--followers))
 - `href` (String) A link to the Web API endpoint providing full details of the playlist.
