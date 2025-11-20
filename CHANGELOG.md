@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.1 (2025-11-20)
+
+Full Changelog: [v0.2.0...v0.2.1](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.2.0...v0.2.1)
+
+### Bug Fixes
+
+* list style data sources should always have id value populated ([20647d0](https://github.com/cjavdev/terraform-provider-spotted/commit/20647d0ccc49a4d405ca4b76586a6139b020c48e))
+
 ## 0.2.0 (2025-11-19)
 
 Full Changelog: [v0.1.0...v0.2.0](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.1.0...v0.2.0)
