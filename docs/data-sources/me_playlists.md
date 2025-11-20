@@ -39,7 +39,7 @@ next set of playlists.'
 Read-Only:
 
 - `collaborative` (Boolean) `true` if the owner allows other users to modify the playlist.
-- `components_schemas_properties_is_public` (Boolean) The playlist's public/private status (if it is added to the user's profile): `true` the playlist is public, `false` the playlist is private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
+- `components_schemas_properties_published` (Boolean) The playlist's public/private status (if it is added to the user's profile): `true` the playlist is public, `false` the playlist is private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `description` (String) The playlist description. _Only returned for modified, verified playlists, otherwise_ `null`.
 - `external_urls` (Attributes) Known external URLs for this playlist. (see [below for nested schema](#nestedatt--items--external_urls))
 - `href` (String) A link to the Web API endpoint providing full details of the playlist.
