@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.0 (2025-11-26)
+
+Full Changelog: [v0.8.0...v0.9.0](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.8.0...v0.9.0)
+
+### Features
+
+* **api:** api update ([5528a16](https://github.com/cjavdev/terraform-provider-spotted/commit/5528a163b9ff37944cbbf3f8971beae6fb292cc4))
+
 ## 0.8.0 (2025-11-20)
 
 Full Changelog: [v0.7.0...v0.8.0](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.7.0...v0.8.0)
