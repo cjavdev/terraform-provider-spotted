@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.10.0 (2025-12-05)
+
+Full Changelog: [v0.9.0...v0.10.0](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.9.0...v0.10.0)
+
+### Features
+
+* **api:** Update readme titles. ([59056e7](https://github.com/cjavdev/terraform-provider-spotted/commit/59056e7c52df77e09ee9aff4b48a11dd2c5b1cb2))
+
+
+### Chores
+
+* ensure tests build as part of lint step ([2441213](https://github.com/cjavdev/terraform-provider-spotted/commit/24412136c29ea2143db31487ecda6188029e4bd4))
+
 ## 0.9.0 (2025-11-26)
 
 Full Changelog: [v0.8.0...v0.9.0](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.8.0...v0.9.0)
