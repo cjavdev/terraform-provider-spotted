@@ -1,6 +1,6 @@
-# Spotted Terraform Provider
+# Unofficial Spotify Provider
 
-The [Spotted Terraform provider](https://registry.terraform.io/providers/cjavdev/spotted/latest/docs) provides convenient access to
+The [Unofficial Spotify provider](https://registry.terraform.io/providers/cjavdev/spotted/latest/docs) provides convenient access to
 the [Spotted REST API](https://spotted.stldocs.com) from Terraform.
 
 It is generated with [Stainless](https://www.stainless.com/).
