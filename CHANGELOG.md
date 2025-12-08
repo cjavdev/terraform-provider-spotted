@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.12.0 (2025-12-08)
+
+Full Changelog: [v0.11.0...v0.12.0](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.11.0...v0.12.0)
+
+### Features
+
+* **api:** unskipping csharp ([7742ca4](https://github.com/cjavdev/terraform-provider-spotted/commit/7742ca472991864211f5ecb5a1bdfdab32f0bb3d))
+
 ## 0.11.0 (2025-12-05)
 
 Full Changelog: [v0.10.0...v0.11.0](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.10.0...v0.11.0)
