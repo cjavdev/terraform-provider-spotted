@@ -17,7 +17,6 @@ type UserPlaylistModel struct {
 	Description   types.String                                            `tfsdk:"description" json:"description,optional"`
 	Public        types.Bool                                              `tfsdk:"public" json:"public,optional"`
 	Href          types.String                                            `tfsdk:"href" json:"href,computed"`
-	Published     types.Bool                                              `tfsdk:"published" json:"published,computed"`
 	SnapshotID    types.String                                            `tfsdk:"snapshot_id" json:"snapshot_id,computed"`
 	Type          types.String                                            `tfsdk:"type" json:"type,computed"`
 	Uri           types.String                                            `tfsdk:"uri" json:"uri,computed"`
