@@ -46,7 +46,6 @@ type UserPlaylistsItemsDataSourceModel struct {
 	Images        customfield.NestedObjectList[UserPlaylistsImagesDataSourceModel]   `tfsdk:"images" json:"images,computed"`
 	Name          types.String                                                       `tfsdk:"name" json:"name,computed"`
 	Owner         customfield.NestedObject[UserPlaylistsOwnerDataSourceModel]        `tfsdk:"owner" json:"owner,computed"`
-	Public        types.Bool                                                         `tfsdk:"public" json:"public,computed"`
 	SnapshotID    types.String                                                       `tfsdk:"snapshot_id" json:"snapshot_id,computed"`
 	Tracks        customfield.NestedObject[UserPlaylistsTracksDataSourceModel]       `tfsdk:"tracks" json:"tracks,computed"`
 	Type          types.String                                                       `tfsdk:"type" json:"type,computed"`
