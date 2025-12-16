@@ -35,6 +35,10 @@ func DataSourceSchema(ctx context.Context) schema.Schema {
 				Description: "The name of the category.",
 				Computed:    true,
 			},
+			"published": schema.BoolAttribute{
+				Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
+				Computed:    true,
+			},
 			"icons": schema.ListNestedAttribute{
 				Description: "The category icon, in various sizes.",
 				Computed:    true,
@@ -51,6 +55,10 @@ func DataSourceSchema(ctx context.Context) schema.Schema {
 						},
 						"width": schema.Int64Attribute{
 							Description: "The image width in pixels.",
+							Computed:    true,
+						},
+						"published": schema.BoolAttribute{
+							Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
 							Computed:    true,
 						},
 					},

@@ -14,6 +14,7 @@ type MeDataSourceModel struct {
 	Href            types.String                                               `tfsdk:"href" json:"href,computed"`
 	ID              types.String                                               `tfsdk:"id" json:"id,computed"`
 	Product         types.String                                               `tfsdk:"product" json:"product,computed"`
+	Published       types.Bool                                                 `tfsdk:"published" json:"published,computed"`
 	Type            types.String                                               `tfsdk:"type" json:"type,computed"`
 	Uri             types.String                                               `tfsdk:"uri" json:"uri,computed"`
 	ExplicitContent customfield.NestedObject[MeExplicitContentDataSourceModel] `tfsdk:"explicit_content" json:"explicit_content,computed"`
@@ -25,19 +26,23 @@ type MeDataSourceModel struct {
 type MeExplicitContentDataSourceModel struct {
 	FilterEnabled types.Bool `tfsdk:"filter_enabled" json:"filter_enabled,computed"`
 	FilterLocked  types.Bool `tfsdk:"filter_locked" json:"filter_locked,computed"`
+	Published     types.Bool `tfsdk:"published" json:"published,computed"`
 }
 
 type MeExternalURLsDataSourceModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type MeFollowersDataSourceModel struct {
-	Href  types.String `tfsdk:"href" json:"href,computed"`
-	Total types.Int64  `tfsdk:"total" json:"total,computed"`
+	Href      types.String `tfsdk:"href" json:"href,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Total     types.Int64  `tfsdk:"total" json:"total,computed"`
 }
 
 type MeImagesDataSourceModel struct {
-	Height types.Int64  `tfsdk:"height" json:"height,computed"`
-	URL    types.String `tfsdk:"url" json:"url,computed"`
-	Width  types.Int64  `tfsdk:"width" json:"width,computed"`
+	Height    types.Int64  `tfsdk:"height" json:"height,computed"`
+	URL       types.String `tfsdk:"url" json:"url,computed"`
+	Width     types.Int64  `tfsdk:"width" json:"width,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
 }

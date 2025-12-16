@@ -8,25 +8,28 @@ import (
 )
 
 type AudioAnalysisDataSourceModel struct {
-	ID       types.String                                                       `tfsdk:"id" path:"id,required"`
-	Bars     customfield.NestedObjectList[AudioAnalysisBarsDataSourceModel]     `tfsdk:"bars" json:"bars,computed"`
-	Beats    customfield.NestedObjectList[AudioAnalysisBeatsDataSourceModel]    `tfsdk:"beats" json:"beats,computed"`
-	Meta     customfield.NestedObject[AudioAnalysisMetaDataSourceModel]         `tfsdk:"meta" json:"meta,computed"`
-	Sections customfield.NestedObjectList[AudioAnalysisSectionsDataSourceModel] `tfsdk:"sections" json:"sections,computed"`
-	Segments customfield.NestedObjectList[AudioAnalysisSegmentsDataSourceModel] `tfsdk:"segments" json:"segments,computed"`
-	Tatums   customfield.NestedObjectList[AudioAnalysisTatumsDataSourceModel]   `tfsdk:"tatums" json:"tatums,computed"`
-	Track    customfield.NestedObject[AudioAnalysisTrackDataSourceModel]        `tfsdk:"track" json:"track,computed"`
+	ID        types.String                                                       `tfsdk:"id" path:"id,required"`
+	Published types.Bool                                                         `tfsdk:"published" json:"published,computed"`
+	Bars      customfield.NestedObjectList[AudioAnalysisBarsDataSourceModel]     `tfsdk:"bars" json:"bars,computed"`
+	Beats     customfield.NestedObjectList[AudioAnalysisBeatsDataSourceModel]    `tfsdk:"beats" json:"beats,computed"`
+	Meta      customfield.NestedObject[AudioAnalysisMetaDataSourceModel]         `tfsdk:"meta" json:"meta,computed"`
+	Sections  customfield.NestedObjectList[AudioAnalysisSectionsDataSourceModel] `tfsdk:"sections" json:"sections,computed"`
+	Segments  customfield.NestedObjectList[AudioAnalysisSegmentsDataSourceModel] `tfsdk:"segments" json:"segments,computed"`
+	Tatums    customfield.NestedObjectList[AudioAnalysisTatumsDataSourceModel]   `tfsdk:"tatums" json:"tatums,computed"`
+	Track     customfield.NestedObject[AudioAnalysisTrackDataSourceModel]        `tfsdk:"track" json:"track,computed"`
 }
 
 type AudioAnalysisBarsDataSourceModel struct {
 	Confidence types.Float64 `tfsdk:"confidence" json:"confidence,computed"`
 	Duration   types.Float64 `tfsdk:"duration" json:"duration,computed"`
+	Published  types.Bool    `tfsdk:"published" json:"published,computed"`
 	Start      types.Float64 `tfsdk:"start" json:"start,computed"`
 }
 
 type AudioAnalysisBeatsDataSourceModel struct {
 	Confidence types.Float64 `tfsdk:"confidence" json:"confidence,computed"`
 	Duration   types.Float64 `tfsdk:"duration" json:"duration,computed"`
+	Published  types.Bool    `tfsdk:"published" json:"published,computed"`
 	Start      types.Float64 `tfsdk:"start" json:"start,computed"`
 }
 
@@ -48,6 +51,7 @@ type AudioAnalysisSectionsDataSourceModel struct {
 	Loudness                types.Float64 `tfsdk:"loudness" json:"loudness,computed"`
 	Mode                    types.Float64 `tfsdk:"mode" json:"mode,computed"`
 	ModeConfidence          types.Float64 `tfsdk:"mode_confidence" json:"mode_confidence,computed"`
+	Published               types.Bool    `tfsdk:"published" json:"published,computed"`
 	Start                   types.Float64 `tfsdk:"start" json:"start,computed"`
 	Tempo                   types.Float64 `tfsdk:"tempo" json:"tempo,computed"`
 	TempoConfidence         types.Float64 `tfsdk:"tempo_confidence" json:"tempo_confidence,computed"`
@@ -63,6 +67,7 @@ type AudioAnalysisSegmentsDataSourceModel struct {
 	LoudnessMaxTime types.Float64                   `tfsdk:"loudness_max_time" json:"loudness_max_time,computed"`
 	LoudnessStart   types.Float64                   `tfsdk:"loudness_start" json:"loudness_start,computed"`
 	Pitches         customfield.List[types.Float64] `tfsdk:"pitches" json:"pitches,computed"`
+	Published       types.Bool                      `tfsdk:"published" json:"published,computed"`
 	Start           types.Float64                   `tfsdk:"start" json:"start,computed"`
 	Timbre          customfield.List[types.Float64] `tfsdk:"timbre" json:"timbre,computed"`
 }
@@ -70,6 +75,7 @@ type AudioAnalysisSegmentsDataSourceModel struct {
 type AudioAnalysisTatumsDataSourceModel struct {
 	Confidence types.Float64 `tfsdk:"confidence" json:"confidence,computed"`
 	Duration   types.Float64 `tfsdk:"duration" json:"duration,computed"`
+	Published  types.Bool    `tfsdk:"published" json:"published,computed"`
 	Start      types.Float64 `tfsdk:"start" json:"start,computed"`
 }
 

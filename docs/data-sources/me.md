@@ -33,6 +33,7 @@ data "spotted_me" "example_me" {
 - `id` (String) The [Spotify user ID](/documentation/web-api/concepts/spotify-uris-ids) for the user.
 - `images` (Attributes List) The user's profile image. (see [below for nested schema](#nestedatt--images))
 - `product` (String) The user's Spotify subscription level: "premium", "free", etc. (The subscription level "open" can be considered the same as "free".) _This field is only available when the current user has granted access to the [user-read-private](/documentation/web-api/concepts/scopes/#list-of-scopes) scope._
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `type` (String) The object type: "user"
 - `uri` (String) The [Spotify URI](/documentation/web-api/concepts/spotify-uris-ids) for the user.
 
@@ -43,6 +44,7 @@ Read-Only:
 
 - `filter_enabled` (Boolean) When `true`, indicates that explicit content should not be played.
 - `filter_locked` (Boolean) When `true`, indicates that the explicit content setting is locked and can't be changed by the user.
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 
 
 <a id="nestedatt--external_urls"></a>
@@ -50,6 +52,7 @@ Read-Only:
 
 Read-Only:
 
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `spotify` (String) The [Spotify URL](/documentation/web-api/concepts/spotify-uris-ids) for the object.
 
 
@@ -59,6 +62,7 @@ Read-Only:
 Read-Only:
 
 - `href` (String) This will always be set to null, as the Web API does not support it at the moment.
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `total` (Number) The total number of followers.
 
 
@@ -68,5 +72,6 @@ Read-Only:
 Read-Only:
 
 - `height` (Number) The image height in pixels.
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `url` (String) The source URL of the image.
 - `width` (Number) The image width in pixels.

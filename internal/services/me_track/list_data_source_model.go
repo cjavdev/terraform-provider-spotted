@@ -42,8 +42,9 @@ func (m *MeTracksDataSourceModel) toListParams(_ context.Context) (params spotte
 }
 
 type MeTracksItemsDataSourceModel struct {
-	AddedAt timetypes.RFC3339                                      `tfsdk:"added_at" json:"added_at,computed" format:"date-time"`
-	Track   customfield.NestedObject[MeTracksTrackDataSourceModel] `tfsdk:"track" json:"track,computed"`
+	AddedAt   timetypes.RFC3339                                      `tfsdk:"added_at" json:"added_at,computed" format:"date-time"`
+	Published types.Bool                                             `tfsdk:"published" json:"published,computed"`
+	Track     customfield.NestedObject[MeTracksTrackDataSourceModel] `tfsdk:"track" json:"track,computed"`
 }
 
 type MeTracksTrackDataSourceModel struct {
@@ -63,6 +64,7 @@ type MeTracksTrackDataSourceModel struct {
 	Name             types.String                                                       `tfsdk:"name" json:"name,computed"`
 	Popularity       types.Int64                                                        `tfsdk:"popularity" json:"popularity,computed"`
 	PreviewURL       types.String                                                       `tfsdk:"preview_url" json:"preview_url,computed"`
+	Published        types.Bool                                                         `tfsdk:"published" json:"published,computed"`
 	Restrictions     customfield.NestedObject[MeTracksTrackRestrictionsDataSourceModel] `tfsdk:"restrictions" json:"restrictions,computed"`
 	TrackNumber      types.Int64                                                        `tfsdk:"track_number" json:"track_number,computed"`
 	Type             types.String                                                       `tfsdk:"type" json:"type,computed"`
@@ -83,6 +85,7 @@ type MeTracksTrackAlbumDataSourceModel struct {
 	TotalTracks          types.Int64                                                             `tfsdk:"total_tracks" json:"total_tracks,computed"`
 	Type                 types.String                                                            `tfsdk:"type" json:"type,computed"`
 	Uri                  types.String                                                            `tfsdk:"uri" json:"uri,computed"`
+	Published            types.Bool                                                              `tfsdk:"published" json:"published,computed"`
 	Restrictions         customfield.NestedObject[MeTracksTrackAlbumRestrictionsDataSourceModel] `tfsdk:"restrictions" json:"restrictions,computed"`
 }
 
@@ -91,26 +94,31 @@ type MeTracksTrackAlbumArtistsDataSourceModel struct {
 	ExternalURLs customfield.NestedObject[MeTracksTrackAlbumArtistsExternalURLsDataSourceModel] `tfsdk:"external_urls" json:"external_urls,computed"`
 	Href         types.String                                                                   `tfsdk:"href" json:"href,computed"`
 	Name         types.String                                                                   `tfsdk:"name" json:"name,computed"`
+	Published    types.Bool                                                                     `tfsdk:"published" json:"published,computed"`
 	Type         types.String                                                                   `tfsdk:"type" json:"type,computed"`
 	Uri          types.String                                                                   `tfsdk:"uri" json:"uri,computed"`
 }
 
 type MeTracksTrackAlbumArtistsExternalURLsDataSourceModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type MeTracksTrackAlbumExternalURLsDataSourceModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type MeTracksTrackAlbumImagesDataSourceModel struct {
-	Height types.Int64  `tfsdk:"height" json:"height,computed"`
-	URL    types.String `tfsdk:"url" json:"url,computed"`
-	Width  types.Int64  `tfsdk:"width" json:"width,computed"`
+	Height    types.Int64  `tfsdk:"height" json:"height,computed"`
+	URL       types.String `tfsdk:"url" json:"url,computed"`
+	Width     types.Int64  `tfsdk:"width" json:"width,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
 }
 
 type MeTracksTrackAlbumRestrictionsDataSourceModel struct {
-	Reason types.String `tfsdk:"reason" json:"reason,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Reason    types.String `tfsdk:"reason" json:"reason,computed"`
 }
 
 type MeTracksTrackArtistsDataSourceModel struct {
@@ -118,36 +126,43 @@ type MeTracksTrackArtistsDataSourceModel struct {
 	ExternalURLs customfield.NestedObject[MeTracksTrackArtistsExternalURLsDataSourceModel] `tfsdk:"external_urls" json:"external_urls,computed"`
 	Href         types.String                                                              `tfsdk:"href" json:"href,computed"`
 	Name         types.String                                                              `tfsdk:"name" json:"name,computed"`
+	Published    types.Bool                                                                `tfsdk:"published" json:"published,computed"`
 	Type         types.String                                                              `tfsdk:"type" json:"type,computed"`
 	Uri          types.String                                                              `tfsdk:"uri" json:"uri,computed"`
 }
 
 type MeTracksTrackArtistsExternalURLsDataSourceModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type MeTracksTrackExternalIDsDataSourceModel struct {
-	Ean  types.String `tfsdk:"ean" json:"ean,computed"`
-	Isrc types.String `tfsdk:"isrc" json:"isrc,computed"`
-	Upc  types.String `tfsdk:"upc" json:"upc,computed"`
+	Ean       types.String `tfsdk:"ean" json:"ean,computed"`
+	Isrc      types.String `tfsdk:"isrc" json:"isrc,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Upc       types.String `tfsdk:"upc" json:"upc,computed"`
 }
 
 type MeTracksTrackExternalURLsDataSourceModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type MeTracksTrackLinkedFromDataSourceModel struct {
 	ID           types.String                                                                 `tfsdk:"id" json:"id,computed"`
 	ExternalURLs customfield.NestedObject[MeTracksTrackLinkedFromExternalURLsDataSourceModel] `tfsdk:"external_urls" json:"external_urls,computed"`
 	Href         types.String                                                                 `tfsdk:"href" json:"href,computed"`
+	Published    types.Bool                                                                   `tfsdk:"published" json:"published,computed"`
 	Type         types.String                                                                 `tfsdk:"type" json:"type,computed"`
 	Uri          types.String                                                                 `tfsdk:"uri" json:"uri,computed"`
 }
 
 type MeTracksTrackLinkedFromExternalURLsDataSourceModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type MeTracksTrackRestrictionsDataSourceModel struct {
-	Reason types.String `tfsdk:"reason" json:"reason,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Reason    types.String `tfsdk:"reason" json:"reason,computed"`
 }

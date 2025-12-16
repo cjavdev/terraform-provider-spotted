@@ -36,6 +36,7 @@ data "spotted_browse_category" "example_browse_category" {
 - `icons` (Attributes List) The category icon, in various sizes. (see [below for nested schema](#nestedatt--icons))
 - `id` (String) The [Spotify category ID](/documentation/web-api/concepts/spotify-uris-ids) of the category.
 - `name` (String) The name of the category.
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 
 <a id="nestedatt--icons"></a>
 ### Nested Schema for `icons`
@@ -43,5 +44,6 @@ data "spotted_browse_category" "example_browse_category" {
 Read-Only:
 
 - `height` (Number) The image height in pixels.
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `url` (String) The source URL of the image.
 - `width` (Number) The image width in pixels.
