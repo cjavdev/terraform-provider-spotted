@@ -37,60 +37,69 @@ func (m UserPlaylistModel) MarshalJSONForUpdate(state UserPlaylistModel) (data [
 }
 
 type UserPlaylistExternalURLsModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type UserPlaylistFollowersModel struct {
-	Href  types.String `tfsdk:"href" json:"href,computed"`
-	Total types.Int64  `tfsdk:"total" json:"total,computed"`
+	Href      types.String `tfsdk:"href" json:"href,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Total     types.Int64  `tfsdk:"total" json:"total,computed"`
 }
 
 type UserPlaylistImagesModel struct {
-	Height types.Int64  `tfsdk:"height" json:"height,computed"`
-	URL    types.String `tfsdk:"url" json:"url,computed"`
-	Width  types.Int64  `tfsdk:"width" json:"width,computed"`
+	Height    types.Int64  `tfsdk:"height" json:"height,computed"`
+	URL       types.String `tfsdk:"url" json:"url,computed"`
+	Width     types.Int64  `tfsdk:"width" json:"width,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
 }
 
 type UserPlaylistOwnerModel struct {
 	ID           types.String                                                 `tfsdk:"id" json:"id,computed"`
 	ExternalURLs customfield.NestedObject[UserPlaylistOwnerExternalURLsModel] `tfsdk:"external_urls" json:"external_urls,computed"`
 	Href         types.String                                                 `tfsdk:"href" json:"href,computed"`
+	Published    types.Bool                                                   `tfsdk:"published" json:"published,computed"`
 	Type         types.String                                                 `tfsdk:"type" json:"type,computed"`
 	Uri          types.String                                                 `tfsdk:"uri" json:"uri,computed"`
 	DisplayName  types.String                                                 `tfsdk:"display_name" json:"display_name,computed"`
 }
 
 type UserPlaylistOwnerExternalURLsModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type UserPlaylistTracksModel struct {
-	Href     types.String                                               `tfsdk:"href" json:"href,computed"`
-	Limit    types.Int64                                                `tfsdk:"limit" json:"limit,computed"`
-	Next     types.String                                               `tfsdk:"next" json:"next,computed"`
-	Offset   types.Int64                                                `tfsdk:"offset" json:"offset,computed"`
-	Previous types.String                                               `tfsdk:"previous" json:"previous,computed"`
-	Total    types.Int64                                                `tfsdk:"total" json:"total,computed"`
-	Items    customfield.NestedObjectList[UserPlaylistTracksItemsModel] `tfsdk:"items" json:"items,computed"`
+	Href      types.String                                               `tfsdk:"href" json:"href,computed"`
+	Limit     types.Int64                                                `tfsdk:"limit" json:"limit,computed"`
+	Next      types.String                                               `tfsdk:"next" json:"next,computed"`
+	Offset    types.Int64                                                `tfsdk:"offset" json:"offset,computed"`
+	Previous  types.String                                               `tfsdk:"previous" json:"previous,computed"`
+	Total     types.Int64                                                `tfsdk:"total" json:"total,computed"`
+	Items     customfield.NestedObjectList[UserPlaylistTracksItemsModel] `tfsdk:"items" json:"items,computed"`
+	Published types.Bool                                                 `tfsdk:"published" json:"published,computed"`
 }
 
 type UserPlaylistTracksItemsModel struct {
-	AddedAt timetypes.RFC3339                                             `tfsdk:"added_at" json:"added_at,computed" format:"date-time"`
-	AddedBy customfield.NestedObject[UserPlaylistTracksItemsAddedByModel] `tfsdk:"added_by" json:"added_by,computed"`
-	IsLocal types.Bool                                                    `tfsdk:"is_local" json:"is_local,computed"`
-	Track   customfield.NestedObject[UserPlaylistTracksItemsTrackModel]   `tfsdk:"track" json:"track,computed"`
+	AddedAt   timetypes.RFC3339                                             `tfsdk:"added_at" json:"added_at,computed" format:"date-time"`
+	AddedBy   customfield.NestedObject[UserPlaylistTracksItemsAddedByModel] `tfsdk:"added_by" json:"added_by,computed"`
+	IsLocal   types.Bool                                                    `tfsdk:"is_local" json:"is_local,computed"`
+	Published types.Bool                                                    `tfsdk:"published" json:"published,computed"`
+	Track     customfield.NestedObject[UserPlaylistTracksItemsTrackModel]   `tfsdk:"track" json:"track,computed"`
 }
 
 type UserPlaylistTracksItemsAddedByModel struct {
 	ID           types.String                                                              `tfsdk:"id" json:"id,computed"`
 	ExternalURLs customfield.NestedObject[UserPlaylistTracksItemsAddedByExternalURLsModel] `tfsdk:"external_urls" json:"external_urls,computed"`
 	Href         types.String                                                              `tfsdk:"href" json:"href,computed"`
+	Published    types.Bool                                                                `tfsdk:"published" json:"published,computed"`
 	Type         types.String                                                              `tfsdk:"type" json:"type,computed"`
 	Uri          types.String                                                              `tfsdk:"uri" json:"uri,computed"`
 }
 
 type UserPlaylistTracksItemsAddedByExternalURLsModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type UserPlaylistTracksItemsTrackModel struct {
@@ -110,6 +119,7 @@ type UserPlaylistTracksItemsTrackModel struct {
 	Name                 types.String                                                            `tfsdk:"name" json:"name,computed"`
 	Popularity           types.Int64                                                             `tfsdk:"popularity" json:"popularity,computed"`
 	PreviewURL           types.String                                                            `tfsdk:"preview_url" json:"preview_url,computed"`
+	Published            types.Bool                                                              `tfsdk:"published" json:"published,computed"`
 	Restrictions         customfield.NestedObject[UserPlaylistTracksItemsTrackRestrictionsModel] `tfsdk:"restrictions" json:"restrictions,computed"`
 	TrackNumber          types.Int64                                                             `tfsdk:"track_number" json:"track_number,computed"`
 	Type                 types.String                                                            `tfsdk:"type" json:"type,computed"`
@@ -141,6 +151,7 @@ type UserPlaylistTracksItemsTrackAlbumModel struct {
 	TotalTracks          types.Int64                                                                  `tfsdk:"total_tracks" json:"total_tracks,computed"`
 	Type                 types.String                                                                 `tfsdk:"type" json:"type,computed"`
 	Uri                  types.String                                                                 `tfsdk:"uri" json:"uri,computed"`
+	Published            types.Bool                                                                   `tfsdk:"published" json:"published,computed"`
 	Restrictions         customfield.NestedObject[UserPlaylistTracksItemsTrackAlbumRestrictionsModel] `tfsdk:"restrictions" json:"restrictions,computed"`
 }
 
@@ -149,26 +160,31 @@ type UserPlaylistTracksItemsTrackAlbumArtistsModel struct {
 	ExternalURLs customfield.NestedObject[UserPlaylistTracksItemsTrackAlbumArtistsExternalURLsModel] `tfsdk:"external_urls" json:"external_urls,computed"`
 	Href         types.String                                                                        `tfsdk:"href" json:"href,computed"`
 	Name         types.String                                                                        `tfsdk:"name" json:"name,computed"`
+	Published    types.Bool                                                                          `tfsdk:"published" json:"published,computed"`
 	Type         types.String                                                                        `tfsdk:"type" json:"type,computed"`
 	Uri          types.String                                                                        `tfsdk:"uri" json:"uri,computed"`
 }
 
 type UserPlaylistTracksItemsTrackAlbumArtistsExternalURLsModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type UserPlaylistTracksItemsTrackAlbumExternalURLsModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type UserPlaylistTracksItemsTrackAlbumImagesModel struct {
-	Height types.Int64  `tfsdk:"height" json:"height,computed"`
-	URL    types.String `tfsdk:"url" json:"url,computed"`
-	Width  types.Int64  `tfsdk:"width" json:"width,computed"`
+	Height    types.Int64  `tfsdk:"height" json:"height,computed"`
+	URL       types.String `tfsdk:"url" json:"url,computed"`
+	Width     types.Int64  `tfsdk:"width" json:"width,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
 }
 
 type UserPlaylistTracksItemsTrackAlbumRestrictionsModel struct {
-	Reason types.String `tfsdk:"reason" json:"reason,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Reason    types.String `tfsdk:"reason" json:"reason,computed"`
 }
 
 type UserPlaylistTracksItemsTrackArtistsModel struct {
@@ -176,44 +192,52 @@ type UserPlaylistTracksItemsTrackArtistsModel struct {
 	ExternalURLs customfield.NestedObject[UserPlaylistTracksItemsTrackArtistsExternalURLsModel] `tfsdk:"external_urls" json:"external_urls,computed"`
 	Href         types.String                                                                   `tfsdk:"href" json:"href,computed"`
 	Name         types.String                                                                   `tfsdk:"name" json:"name,computed"`
+	Published    types.Bool                                                                     `tfsdk:"published" json:"published,computed"`
 	Type         types.String                                                                   `tfsdk:"type" json:"type,computed"`
 	Uri          types.String                                                                   `tfsdk:"uri" json:"uri,computed"`
 }
 
 type UserPlaylistTracksItemsTrackArtistsExternalURLsModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type UserPlaylistTracksItemsTrackExternalIDsModel struct {
-	Ean  types.String `tfsdk:"ean" json:"ean,computed"`
-	Isrc types.String `tfsdk:"isrc" json:"isrc,computed"`
-	Upc  types.String `tfsdk:"upc" json:"upc,computed"`
+	Ean       types.String `tfsdk:"ean" json:"ean,computed"`
+	Isrc      types.String `tfsdk:"isrc" json:"isrc,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Upc       types.String `tfsdk:"upc" json:"upc,computed"`
 }
 
 type UserPlaylistTracksItemsTrackExternalURLsModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type UserPlaylistTracksItemsTrackLinkedFromModel struct {
 	ID           types.String                                                                      `tfsdk:"id" json:"id,computed"`
 	ExternalURLs customfield.NestedObject[UserPlaylistTracksItemsTrackLinkedFromExternalURLsModel] `tfsdk:"external_urls" json:"external_urls,computed"`
 	Href         types.String                                                                      `tfsdk:"href" json:"href,computed"`
+	Published    types.Bool                                                                        `tfsdk:"published" json:"published,computed"`
 	Type         types.String                                                                      `tfsdk:"type" json:"type,computed"`
 	Uri          types.String                                                                      `tfsdk:"uri" json:"uri,computed"`
 }
 
 type UserPlaylistTracksItemsTrackLinkedFromExternalURLsModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type UserPlaylistTracksItemsTrackRestrictionsModel struct {
-	Reason types.String `tfsdk:"reason" json:"reason,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Reason    types.String `tfsdk:"reason" json:"reason,computed"`
 }
 
 type UserPlaylistTracksItemsTrackImagesModel struct {
-	Height types.Int64  `tfsdk:"height" json:"height,computed"`
-	URL    types.String `tfsdk:"url" json:"url,computed"`
-	Width  types.Int64  `tfsdk:"width" json:"width,computed"`
+	Height    types.Int64  `tfsdk:"height" json:"height,computed"`
+	URL       types.String `tfsdk:"url" json:"url,computed"`
+	Width     types.Int64  `tfsdk:"width" json:"width,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
 }
 
 type UserPlaylistTracksItemsTrackShowModel struct {
@@ -234,24 +258,29 @@ type UserPlaylistTracksItemsTrackShowModel struct {
 	TotalEpisodes      types.Int64                                                                   `tfsdk:"total_episodes" json:"total_episodes,computed"`
 	Type               types.String                                                                  `tfsdk:"type" json:"type,computed"`
 	Uri                types.String                                                                  `tfsdk:"uri" json:"uri,computed"`
+	Published          types.Bool                                                                    `tfsdk:"published" json:"published,computed"`
 }
 
 type UserPlaylistTracksItemsTrackShowCopyrightsModel struct {
-	Text types.String `tfsdk:"text" json:"text,computed"`
-	Type types.String `tfsdk:"type" json:"type,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Text      types.String `tfsdk:"text" json:"text,computed"`
+	Type      types.String `tfsdk:"type" json:"type,computed"`
 }
 
 type UserPlaylistTracksItemsTrackShowExternalURLsModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type UserPlaylistTracksItemsTrackShowImagesModel struct {
-	Height types.Int64  `tfsdk:"height" json:"height,computed"`
-	URL    types.String `tfsdk:"url" json:"url,computed"`
-	Width  types.Int64  `tfsdk:"width" json:"width,computed"`
+	Height    types.Int64  `tfsdk:"height" json:"height,computed"`
+	URL       types.String `tfsdk:"url" json:"url,computed"`
+	Width     types.Int64  `tfsdk:"width" json:"width,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
 }
 
 type UserPlaylistTracksItemsTrackResumePointModel struct {
 	FullyPlayed      types.Bool  `tfsdk:"fully_played" json:"fully_played,computed"`
+	Published        types.Bool  `tfsdk:"published" json:"published,computed"`
 	ResumePositionMs types.Int64 `tfsdk:"resume_position_ms" json:"resume_position_ms,computed"`
 }

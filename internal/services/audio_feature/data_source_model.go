@@ -18,6 +18,7 @@ type AudioFeatureDataSourceModel struct {
 	Liveness         types.Float64 `tfsdk:"liveness" json:"liveness,computed"`
 	Loudness         types.Float64 `tfsdk:"loudness" json:"loudness,computed"`
 	Mode             types.Int64   `tfsdk:"mode" json:"mode,computed"`
+	Published        types.Bool    `tfsdk:"published" json:"published,computed"`
 	Speechiness      types.Float64 `tfsdk:"speechiness" json:"speechiness,computed"`
 	Tempo            types.Float64 `tfsdk:"tempo" json:"tempo,computed"`
 	TimeSignature    types.Int64   `tfsdk:"time_signature" json:"time_signature,computed"`

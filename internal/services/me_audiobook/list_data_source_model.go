@@ -40,6 +40,7 @@ func (m *MeAudiobooksDataSourceModel) toListParams(_ context.Context) (params sp
 type MeAudiobooksItemsDataSourceModel struct {
 	AddedAt   timetypes.RFC3339                                              `tfsdk:"added_at" json:"added_at,computed" format:"date-time"`
 	Audiobook customfield.NestedObject[MeAudiobooksAudiobookDataSourceModel] `tfsdk:"audiobook" json:"audiobook,computed"`
+	Published types.Bool                                                     `tfsdk:"published" json:"published,computed"`
 }
 
 type MeAudiobooksAudiobookDataSourceModel struct {
@@ -62,40 +63,47 @@ type MeAudiobooksAudiobookDataSourceModel struct {
 	Type             types.String                                                                 `tfsdk:"type" json:"type,computed"`
 	Uri              types.String                                                                 `tfsdk:"uri" json:"uri,computed"`
 	Edition          types.String                                                                 `tfsdk:"edition" json:"edition,computed"`
+	Published        types.Bool                                                                   `tfsdk:"published" json:"published,computed"`
 	Chapters         customfield.NestedObject[MeAudiobooksAudiobookChaptersDataSourceModel]       `tfsdk:"chapters" json:"chapters,computed"`
 }
 
 type MeAudiobooksAudiobookAuthorsDataSourceModel struct {
-	Name types.String `tfsdk:"name" json:"name,computed"`
+	Name      types.String `tfsdk:"name" json:"name,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
 }
 
 type MeAudiobooksAudiobookCopyrightsDataSourceModel struct {
-	Text types.String `tfsdk:"text" json:"text,computed"`
-	Type types.String `tfsdk:"type" json:"type,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Text      types.String `tfsdk:"text" json:"text,computed"`
+	Type      types.String `tfsdk:"type" json:"type,computed"`
 }
 
 type MeAudiobooksAudiobookExternalURLsDataSourceModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type MeAudiobooksAudiobookImagesDataSourceModel struct {
-	Height types.Int64  `tfsdk:"height" json:"height,computed"`
-	URL    types.String `tfsdk:"url" json:"url,computed"`
-	Width  types.Int64  `tfsdk:"width" json:"width,computed"`
+	Height    types.Int64  `tfsdk:"height" json:"height,computed"`
+	URL       types.String `tfsdk:"url" json:"url,computed"`
+	Width     types.Int64  `tfsdk:"width" json:"width,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
 }
 
 type MeAudiobooksAudiobookNarratorsDataSourceModel struct {
-	Name types.String `tfsdk:"name" json:"name,computed"`
+	Name      types.String `tfsdk:"name" json:"name,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
 }
 
 type MeAudiobooksAudiobookChaptersDataSourceModel struct {
-	Href     types.String                                                                    `tfsdk:"href" json:"href,computed"`
-	Limit    types.Int64                                                                     `tfsdk:"limit" json:"limit,computed"`
-	Next     types.String                                                                    `tfsdk:"next" json:"next,computed"`
-	Offset   types.Int64                                                                     `tfsdk:"offset" json:"offset,computed"`
-	Previous types.String                                                                    `tfsdk:"previous" json:"previous,computed"`
-	Total    types.Int64                                                                     `tfsdk:"total" json:"total,computed"`
-	Items    customfield.NestedObjectList[MeAudiobooksAudiobookChaptersItemsDataSourceModel] `tfsdk:"items" json:"items,computed"`
+	Href      types.String                                                                    `tfsdk:"href" json:"href,computed"`
+	Limit     types.Int64                                                                     `tfsdk:"limit" json:"limit,computed"`
+	Next      types.String                                                                    `tfsdk:"next" json:"next,computed"`
+	Offset    types.Int64                                                                     `tfsdk:"offset" json:"offset,computed"`
+	Previous  types.String                                                                    `tfsdk:"previous" json:"previous,computed"`
+	Total     types.Int64                                                                     `tfsdk:"total" json:"total,computed"`
+	Items     customfield.NestedObjectList[MeAudiobooksAudiobookChaptersItemsDataSourceModel] `tfsdk:"items" json:"items,computed"`
+	Published types.Bool                                                                      `tfsdk:"published" json:"published,computed"`
 }
 
 type MeAudiobooksAudiobookChaptersItemsDataSourceModel struct {
@@ -117,25 +125,30 @@ type MeAudiobooksAudiobookChaptersItemsDataSourceModel struct {
 	Type                 types.String                                                                            `tfsdk:"type" json:"type,computed"`
 	Uri                  types.String                                                                            `tfsdk:"uri" json:"uri,computed"`
 	AvailableMarkets     customfield.List[types.String]                                                          `tfsdk:"available_markets" json:"available_markets,computed"`
+	Published            types.Bool                                                                              `tfsdk:"published" json:"published,computed"`
 	Restrictions         customfield.NestedObject[MeAudiobooksAudiobookChaptersItemsRestrictionsDataSourceModel] `tfsdk:"restrictions" json:"restrictions,computed"`
 	ResumePoint          customfield.NestedObject[MeAudiobooksAudiobookChaptersItemsResumePointDataSourceModel]  `tfsdk:"resume_point" json:"resume_point,computed"`
 }
 
 type MeAudiobooksAudiobookChaptersItemsExternalURLsDataSourceModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type MeAudiobooksAudiobookChaptersItemsImagesDataSourceModel struct {
-	Height types.Int64  `tfsdk:"height" json:"height,computed"`
-	URL    types.String `tfsdk:"url" json:"url,computed"`
-	Width  types.Int64  `tfsdk:"width" json:"width,computed"`
+	Height    types.Int64  `tfsdk:"height" json:"height,computed"`
+	URL       types.String `tfsdk:"url" json:"url,computed"`
+	Width     types.Int64  `tfsdk:"width" json:"width,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
 }
 
 type MeAudiobooksAudiobookChaptersItemsRestrictionsDataSourceModel struct {
-	Reason types.String `tfsdk:"reason" json:"reason,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Reason    types.String `tfsdk:"reason" json:"reason,computed"`
 }
 
 type MeAudiobooksAudiobookChaptersItemsResumePointDataSourceModel struct {
 	FullyPlayed      types.Bool  `tfsdk:"fully_played" json:"fully_played,computed"`
+	Published        types.Bool  `tfsdk:"published" json:"published,computed"`
 	ResumePositionMs types.Int64 `tfsdk:"resume_position_ms" json:"resume_position_ms,computed"`
 }

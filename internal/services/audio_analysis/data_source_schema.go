@@ -24,6 +24,10 @@ func DataSourceSchema(ctx context.Context) schema.Schema {
 				Description: "The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids)\nfor the track.",
 				Required:    true,
 			},
+			"published": schema.BoolAttribute{
+				Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
+				Computed:    true,
+			},
 			"bars": schema.ListNestedAttribute{
 				Description: "The time intervals of the bars throughout the track. A bar (or measure) is a segment of time defined as a given number of beats.",
 				Computed:    true,
@@ -39,6 +43,10 @@ func DataSourceSchema(ctx context.Context) schema.Schema {
 						},
 						"duration": schema.Float64Attribute{
 							Description: "The duration (in seconds) of the time interval.",
+							Computed:    true,
+						},
+						"published": schema.BoolAttribute{
+							Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
 							Computed:    true,
 						},
 						"start": schema.Float64Attribute{
@@ -63,6 +71,10 @@ func DataSourceSchema(ctx context.Context) schema.Schema {
 						},
 						"duration": schema.Float64Attribute{
 							Description: "The duration (in seconds) of the time interval.",
+							Computed:    true,
+						},
+						"published": schema.BoolAttribute{
+							Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
 							Computed:    true,
 						},
 						"start": schema.Float64Attribute{
@@ -156,6 +168,10 @@ func DataSourceSchema(ctx context.Context) schema.Schema {
 								float64validator.Between(0, 1),
 							},
 						},
+						"published": schema.BoolAttribute{
+							Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
+							Computed:    true,
+						},
 						"start": schema.Float64Attribute{
 							Description: "The starting point (in seconds) of the section.",
 							Computed:    true,
@@ -232,6 +248,10 @@ func DataSourceSchema(ctx context.Context) schema.Schema {
 							CustomType:  customfield.NewListType[types.Float64](ctx),
 							ElementType: types.Float64Type,
 						},
+						"published": schema.BoolAttribute{
+							Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
+							Computed:    true,
+						},
 						"start": schema.Float64Attribute{
 							Description: "The starting point (in seconds) of the segment.",
 							Computed:    true,
@@ -260,6 +280,10 @@ func DataSourceSchema(ctx context.Context) schema.Schema {
 						},
 						"duration": schema.Float64Attribute{
 							Description: "The duration (in seconds) of the time interval.",
+							Computed:    true,
+						},
+						"published": schema.BoolAttribute{
+							Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
 							Computed:    true,
 						},
 						"start": schema.Float64Attribute{

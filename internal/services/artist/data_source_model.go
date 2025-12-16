@@ -12,6 +12,7 @@ type ArtistDataSourceModel struct {
 	Href         types.String                                                `tfsdk:"href" json:"href,computed"`
 	Name         types.String                                                `tfsdk:"name" json:"name,computed"`
 	Popularity   types.Int64                                                 `tfsdk:"popularity" json:"popularity,computed"`
+	Published    types.Bool                                                  `tfsdk:"published" json:"published,computed"`
 	Type         types.String                                                `tfsdk:"type" json:"type,computed"`
 	Uri          types.String                                                `tfsdk:"uri" json:"uri,computed"`
 	Genres       customfield.List[types.String]                              `tfsdk:"genres" json:"genres,computed"`
@@ -21,16 +22,19 @@ type ArtistDataSourceModel struct {
 }
 
 type ArtistExternalURLsDataSourceModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type ArtistFollowersDataSourceModel struct {
-	Href  types.String `tfsdk:"href" json:"href,computed"`
-	Total types.Int64  `tfsdk:"total" json:"total,computed"`
+	Href      types.String `tfsdk:"href" json:"href,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Total     types.Int64  `tfsdk:"total" json:"total,computed"`
 }
 
 type ArtistImagesDataSourceModel struct {
-	Height types.Int64  `tfsdk:"height" json:"height,computed"`
-	URL    types.String `tfsdk:"url" json:"url,computed"`
-	Width  types.Int64  `tfsdk:"width" json:"width,computed"`
+	Height    types.Int64  `tfsdk:"height" json:"height,computed"`
+	URL       types.String `tfsdk:"url" json:"url,computed"`
+	Width     types.Int64  `tfsdk:"width" json:"width,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
 }

@@ -53,29 +53,34 @@ type MePlaylistsItemsDataSourceModel struct {
 }
 
 type MePlaylistsExternalURLsDataSourceModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type MePlaylistsImagesDataSourceModel struct {
-	Height types.Int64  `tfsdk:"height" json:"height,computed"`
-	URL    types.String `tfsdk:"url" json:"url,computed"`
-	Width  types.Int64  `tfsdk:"width" json:"width,computed"`
+	Height    types.Int64  `tfsdk:"height" json:"height,computed"`
+	URL       types.String `tfsdk:"url" json:"url,computed"`
+	Width     types.Int64  `tfsdk:"width" json:"width,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
 }
 
 type MePlaylistsOwnerDataSourceModel struct {
 	ID           types.String                                                          `tfsdk:"id" json:"id,computed"`
 	ExternalURLs customfield.NestedObject[MePlaylistsOwnerExternalURLsDataSourceModel] `tfsdk:"external_urls" json:"external_urls,computed"`
 	Href         types.String                                                          `tfsdk:"href" json:"href,computed"`
+	Published    types.Bool                                                            `tfsdk:"published" json:"published,computed"`
 	Type         types.String                                                          `tfsdk:"type" json:"type,computed"`
 	Uri          types.String                                                          `tfsdk:"uri" json:"uri,computed"`
 	DisplayName  types.String                                                          `tfsdk:"display_name" json:"display_name,computed"`
 }
 
 type MePlaylistsOwnerExternalURLsDataSourceModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type MePlaylistsTracksDataSourceModel struct {
-	Href  types.String `tfsdk:"href" json:"href,computed"`
-	Total types.Int64  `tfsdk:"total" json:"total,computed"`
+	Href      types.String `tfsdk:"href" json:"href,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Total     types.Int64  `tfsdk:"total" json:"total,computed"`
 }
