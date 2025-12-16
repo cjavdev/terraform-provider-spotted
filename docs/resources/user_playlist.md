@@ -19,6 +19,7 @@ resource "spotted_user_playlist" "example_user_playlist" {
   collaborative = true
   description = "New playlist description"
   public = false
+  published = true
 }
 ```
 
@@ -35,6 +36,7 @@ resource "spotted_user_playlist" "example_user_playlist" {
 - `collaborative` (Boolean) Defaults to `false`. If `true` the playlist will be collaborative. _**Note**: to create a collaborative playlist you must also set `public` to `false`. To create collaborative playlists you must have granted `playlist-modify-private` and `playlist-modify-public` [scopes](/documentation/web-api/concepts/scopes/#list-of-scopes)._
 - `description` (String) value for playlist description as displayed in Spotify Clients and in the Web API.
 - `public` (Boolean) Defaults to `true`. The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private. To be able to create private playlists, the user must have granted the `playlist-modify-private` [scope](/documentation/web-api/concepts/scopes/#list-of-scopes). For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 
 ### Read-Only
 
@@ -44,7 +46,6 @@ resource "spotted_user_playlist" "example_user_playlist" {
 - `id` (String) The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) for the playlist.
 - `images` (Attributes List) Images for the playlist. The array may be empty or contain up to three images. The images are returned by size in descending order. See [Working with Playlists](/documentation/web-api/concepts/playlists). _**Note**: If returned, the source URL for the image (`url`) is temporary and will expire in less than a day._ (see [below for nested schema](#nestedatt--images))
 - `owner` (Attributes) The user who owns the playlist (see [below for nested schema](#nestedatt--owner))
-- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `snapshot_id` (String) The version identifier for the current playlist. Can be supplied in other requests to target a specific playlist version
 - `tracks` (Attributes) The tracks of the playlist. (see [below for nested schema](#nestedatt--tracks))
 - `type` (String) The object type: "playlist"
