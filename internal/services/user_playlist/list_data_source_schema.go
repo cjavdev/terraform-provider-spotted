@@ -65,6 +65,10 @@ func ListDataSourceSchema(ctx context.Context) schema.Schema {
 							Computed:    true,
 							CustomType:  customfield.NewNestedObjectType[UserPlaylistsExternalURLsDataSourceModel](ctx),
 							Attributes: map[string]schema.Attribute{
+								"published": schema.BoolAttribute{
+									Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
+									Computed:    true,
+								},
 								"spotify": schema.StringAttribute{
 									Description: "The [Spotify URL](/documentation/web-api/concepts/spotify-uris-ids) for the object.",
 									Computed:    true,
@@ -93,6 +97,10 @@ func ListDataSourceSchema(ctx context.Context) schema.Schema {
 										Description: "The image width in pixels.",
 										Computed:    true,
 									},
+									"published": schema.BoolAttribute{
+										Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
+										Computed:    true,
+									},
 								},
 							},
 						},
@@ -114,6 +122,10 @@ func ListDataSourceSchema(ctx context.Context) schema.Schema {
 									Computed:    true,
 									CustomType:  customfield.NewNestedObjectType[UserPlaylistsOwnerExternalURLsDataSourceModel](ctx),
 									Attributes: map[string]schema.Attribute{
+										"published": schema.BoolAttribute{
+											Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
+											Computed:    true,
+										},
 										"spotify": schema.StringAttribute{
 											Description: "The [Spotify URL](/documentation/web-api/concepts/spotify-uris-ids) for the object.",
 											Computed:    true,
@@ -122,6 +134,10 @@ func ListDataSourceSchema(ctx context.Context) schema.Schema {
 								},
 								"href": schema.StringAttribute{
 									Description: "A link to the Web API endpoint for this user.",
+									Computed:    true,
+								},
+								"published": schema.BoolAttribute{
+									Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
 									Computed:    true,
 								},
 								"type": schema.StringAttribute{
@@ -142,7 +158,7 @@ func ListDataSourceSchema(ctx context.Context) schema.Schema {
 							},
 						},
 						"published": schema.BoolAttribute{
-							Description: "The playlist's public/private status (if it is added to the user's profile): `true` the playlist is public, `false` the playlist is private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
+							Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
 							Computed:    true,
 						},
 						"snapshot_id": schema.StringAttribute{
@@ -156,6 +172,10 @@ func ListDataSourceSchema(ctx context.Context) schema.Schema {
 							Attributes: map[string]schema.Attribute{
 								"href": schema.StringAttribute{
 									Description: "A link to the Web API endpoint where full details of the playlist's tracks can be retrieved.",
+									Computed:    true,
+								},
+								"published": schema.BoolAttribute{
+									Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
 									Computed:    true,
 								},
 								"total": schema.Int64Attribute{

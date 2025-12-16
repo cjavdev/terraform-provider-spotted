@@ -53,6 +53,7 @@ for the audiobook.
 - `media_type` (String) The media type of the audiobook.
 - `name` (String) The name of the audiobook.
 - `narrators` (Attributes List) The narrator(s) for the audiobook. (see [below for nested schema](#nestedatt--narrators))
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `publisher` (String) The publisher of the audiobook.
 - `total_chapters` (Number) The number of chapters in this audiobook.
 - `type` (String) The object type.
@@ -65,6 +66,7 @@ Available values: "audiobook".
 Read-Only:
 
 - `name` (String) The name of the author.
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 
 
 <a id="nestedatt--chapters"></a>
@@ -78,6 +80,7 @@ Read-Only:
 - `next` (String) URL to the next page of items. ( `null` if none)
 - `offset` (Number) The offset of the items returned (as set in the query or by default)
 - `previous` (String) URL to the previous page of items. ( `null` if none)
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `total` (Number) The total number of items available to return.
 
 <a id="nestedatt--chapters--items"></a>
@@ -99,6 +102,7 @@ Read-Only:
 - `is_playable` (Boolean) True if the chapter is playable in the given market. Otherwise false.
 - `languages` (List of String) A list of the languages used in the chapter, identified by their [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639) code.
 - `name` (String) The name of the chapter.
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `release_date` (String) The date the chapter was first released, for example `"1981-12-15"`. Depending on the precision, it might be shown as `"1981"` or `"1981-12"`.
 - `release_date_precision` (String) The precision with which `release_date` value is known.
 Available values: "year", "month", "day".
@@ -113,6 +117,7 @@ Available values: "episode".
 
 Read-Only:
 
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `spotify` (String) The [Spotify URL](/documentation/web-api/concepts/spotify-uris-ids) for the object.
 
 
@@ -122,6 +127,7 @@ Read-Only:
 Read-Only:
 
 - `height` (Number) The image height in pixels.
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `url` (String) The source URL of the image.
 - `width` (Number) The image width in pixels.
 
@@ -131,6 +137,7 @@ Read-Only:
 
 Read-Only:
 
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `reason` (String) The reason for the restriction. Supported values:
 - `market` - The content item is not available in the given market.
 - `product` - The content item is not available for the user's subscription type.
@@ -147,6 +154,7 @@ Additional reasons may be added in the future.
 Read-Only:
 
 - `fully_played` (Boolean) Whether or not the episode has been fully played by the user.
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `resume_position_ms` (Number) The user's most recent position in the episode in milliseconds.
 
 
@@ -157,6 +165,7 @@ Read-Only:
 
 Read-Only:
 
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `text` (String) The copyright text for this content.
 - `type` (String) The type of copyright: `C` = the copyright, `P` = the sound recording (performance) copyright.
 
@@ -166,6 +175,7 @@ Read-Only:
 
 Read-Only:
 
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `spotify` (String) The [Spotify URL](/documentation/web-api/concepts/spotify-uris-ids) for the object.
 
 
@@ -175,6 +185,7 @@ Read-Only:
 Read-Only:
 
 - `height` (Number) The image height in pixels.
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `url` (String) The source URL of the image.
 - `width` (Number) The image width in pixels.
 
@@ -185,3 +196,4 @@ Read-Only:
 Read-Only:
 
 - `name` (String) The name of the Narrator.
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)

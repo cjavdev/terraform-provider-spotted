@@ -25,6 +25,7 @@ type EpisodeDataSourceModel struct {
 	IsPlayable           types.Bool                                                   `tfsdk:"is_playable" json:"is_playable,computed"`
 	Language             types.String                                                 `tfsdk:"language" json:"language,computed"`
 	Name                 types.String                                                 `tfsdk:"name" json:"name,computed"`
+	Published            types.Bool                                                   `tfsdk:"published" json:"published,computed"`
 	ReleaseDate          types.String                                                 `tfsdk:"release_date" json:"release_date,computed"`
 	ReleaseDatePrecision types.String                                                 `tfsdk:"release_date_precision" json:"release_date_precision,computed"`
 	Type                 types.String                                                 `tfsdk:"type" json:"type,computed"`
@@ -48,21 +49,25 @@ func (m *EpisodeDataSourceModel) toReadParams(_ context.Context) (params spotted
 }
 
 type EpisodeExternalURLsDataSourceModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type EpisodeImagesDataSourceModel struct {
-	Height types.Int64  `tfsdk:"height" json:"height,computed"`
-	URL    types.String `tfsdk:"url" json:"url,computed"`
-	Width  types.Int64  `tfsdk:"width" json:"width,computed"`
+	Height    types.Int64  `tfsdk:"height" json:"height,computed"`
+	URL       types.String `tfsdk:"url" json:"url,computed"`
+	Width     types.Int64  `tfsdk:"width" json:"width,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
 }
 
 type EpisodeRestrictionsDataSourceModel struct {
-	Reason types.String `tfsdk:"reason" json:"reason,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Reason    types.String `tfsdk:"reason" json:"reason,computed"`
 }
 
 type EpisodeResumePointDataSourceModel struct {
 	FullyPlayed      types.Bool  `tfsdk:"fully_played" json:"fully_played,computed"`
+	Published        types.Bool  `tfsdk:"published" json:"published,computed"`
 	ResumePositionMs types.Int64 `tfsdk:"resume_position_ms" json:"resume_position_ms,computed"`
 }
 
@@ -84,19 +89,23 @@ type EpisodeShowDataSourceModel struct {
 	TotalEpisodes      types.Int64                                                        `tfsdk:"total_episodes" json:"total_episodes,computed"`
 	Type               types.String                                                       `tfsdk:"type" json:"type,computed"`
 	Uri                types.String                                                       `tfsdk:"uri" json:"uri,computed"`
+	Published          types.Bool                                                         `tfsdk:"published" json:"published,computed"`
 }
 
 type EpisodeShowCopyrightsDataSourceModel struct {
-	Text types.String `tfsdk:"text" json:"text,computed"`
-	Type types.String `tfsdk:"type" json:"type,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Text      types.String `tfsdk:"text" json:"text,computed"`
+	Type      types.String `tfsdk:"type" json:"type,computed"`
 }
 
 type EpisodeShowExternalURLsDataSourceModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type EpisodeShowImagesDataSourceModel struct {
-	Height types.Int64  `tfsdk:"height" json:"height,computed"`
-	URL    types.String `tfsdk:"url" json:"url,computed"`
-	Width  types.Int64  `tfsdk:"width" json:"width,computed"`
+	Height    types.Int64  `tfsdk:"height" json:"height,computed"`
+	URL       types.String `tfsdk:"url" json:"url,computed"`
+	Width     types.Int64  `tfsdk:"width" json:"width,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
 }

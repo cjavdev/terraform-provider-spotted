@@ -34,6 +34,7 @@ data "spotted_artist" "example_artist" {
 - `images` (Attributes List) Images of the artist in various sizes, widest first. (see [below for nested schema](#nestedatt--images))
 - `name` (String) The name of the artist.
 - `popularity` (Number) The popularity of the artist. The value will be between 0 and 100, with 100 being the most popular. The artist's popularity is calculated from the popularity of all the artist's tracks.
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `type` (String) The object type.
 Available values: "artist".
 - `uri` (String) The [Spotify URI](/documentation/web-api/concepts/spotify-uris-ids) for the artist.
@@ -43,6 +44,7 @@ Available values: "artist".
 
 Read-Only:
 
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `spotify` (String) The [Spotify URL](/documentation/web-api/concepts/spotify-uris-ids) for the object.
 
 
@@ -52,6 +54,7 @@ Read-Only:
 Read-Only:
 
 - `href` (String) This will always be set to null, as the Web API does not support it at the moment.
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `total` (Number) The total number of followers.
 
 
@@ -61,5 +64,6 @@ Read-Only:
 Read-Only:
 
 - `height` (Number) The image height in pixels.
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `url` (String) The source URL of the image.
 - `width` (Number) The image width in pixels.

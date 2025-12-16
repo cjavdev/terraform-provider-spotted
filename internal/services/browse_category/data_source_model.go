@@ -18,6 +18,7 @@ type BrowseCategoryDataSourceModel struct {
 	Href       types.String                                                     `tfsdk:"href" json:"href,computed"`
 	ID         types.String                                                     `tfsdk:"id" json:"id,computed"`
 	Name       types.String                                                     `tfsdk:"name" json:"name,computed"`
+	Published  types.Bool                                                       `tfsdk:"published" json:"published,computed"`
 	Icons      customfield.NestedObjectList[BrowseCategoryIconsDataSourceModel] `tfsdk:"icons" json:"icons,computed"`
 }
 
@@ -32,7 +33,8 @@ func (m *BrowseCategoryDataSourceModel) toReadParams(_ context.Context) (params 
 }
 
 type BrowseCategoryIconsDataSourceModel struct {
-	Height types.Int64  `tfsdk:"height" json:"height,computed"`
-	URL    types.String `tfsdk:"url" json:"url,computed"`
-	Width  types.Int64  `tfsdk:"width" json:"width,computed"`
+	Height    types.Int64  `tfsdk:"height" json:"height,computed"`
+	URL       types.String `tfsdk:"url" json:"url,computed"`
+	Width     types.Int64  `tfsdk:"width" json:"width,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
 }

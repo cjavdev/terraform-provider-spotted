@@ -24,6 +24,7 @@ type ChapterDataSourceModel struct {
 	HTMLDescription      types.String                                                 `tfsdk:"html_description" json:"html_description,computed"`
 	IsPlayable           types.Bool                                                   `tfsdk:"is_playable" json:"is_playable,computed"`
 	Name                 types.String                                                 `tfsdk:"name" json:"name,computed"`
+	Published            types.Bool                                                   `tfsdk:"published" json:"published,computed"`
 	ReleaseDate          types.String                                                 `tfsdk:"release_date" json:"release_date,computed"`
 	ReleaseDatePrecision types.String                                                 `tfsdk:"release_date_precision" json:"release_date_precision,computed"`
 	Type                 types.String                                                 `tfsdk:"type" json:"type,computed"`
@@ -67,46 +68,56 @@ type ChapterAudiobookDataSourceModel struct {
 	Type             types.String                                                            `tfsdk:"type" json:"type,computed"`
 	Uri              types.String                                                            `tfsdk:"uri" json:"uri,computed"`
 	Edition          types.String                                                            `tfsdk:"edition" json:"edition,computed"`
+	Published        types.Bool                                                              `tfsdk:"published" json:"published,computed"`
 }
 
 type ChapterAudiobookAuthorsDataSourceModel struct {
-	Name types.String `tfsdk:"name" json:"name,computed"`
+	Name      types.String `tfsdk:"name" json:"name,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
 }
 
 type ChapterAudiobookCopyrightsDataSourceModel struct {
-	Text types.String `tfsdk:"text" json:"text,computed"`
-	Type types.String `tfsdk:"type" json:"type,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Text      types.String `tfsdk:"text" json:"text,computed"`
+	Type      types.String `tfsdk:"type" json:"type,computed"`
 }
 
 type ChapterAudiobookExternalURLsDataSourceModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type ChapterAudiobookImagesDataSourceModel struct {
-	Height types.Int64  `tfsdk:"height" json:"height,computed"`
-	URL    types.String `tfsdk:"url" json:"url,computed"`
-	Width  types.Int64  `tfsdk:"width" json:"width,computed"`
+	Height    types.Int64  `tfsdk:"height" json:"height,computed"`
+	URL       types.String `tfsdk:"url" json:"url,computed"`
+	Width     types.Int64  `tfsdk:"width" json:"width,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
 }
 
 type ChapterAudiobookNarratorsDataSourceModel struct {
-	Name types.String `tfsdk:"name" json:"name,computed"`
+	Name      types.String `tfsdk:"name" json:"name,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
 }
 
 type ChapterExternalURLsDataSourceModel struct {
-	Spotify types.String `tfsdk:"spotify" json:"spotify,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Spotify   types.String `tfsdk:"spotify" json:"spotify,computed"`
 }
 
 type ChapterImagesDataSourceModel struct {
-	Height types.Int64  `tfsdk:"height" json:"height,computed"`
-	URL    types.String `tfsdk:"url" json:"url,computed"`
-	Width  types.Int64  `tfsdk:"width" json:"width,computed"`
+	Height    types.Int64  `tfsdk:"height" json:"height,computed"`
+	URL       types.String `tfsdk:"url" json:"url,computed"`
+	Width     types.Int64  `tfsdk:"width" json:"width,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
 }
 
 type ChapterRestrictionsDataSourceModel struct {
-	Reason types.String `tfsdk:"reason" json:"reason,computed"`
+	Published types.Bool   `tfsdk:"published" json:"published,computed"`
+	Reason    types.String `tfsdk:"reason" json:"reason,computed"`
 }
 
 type ChapterResumePointDataSourceModel struct {
 	FullyPlayed      types.Bool  `tfsdk:"fully_played" json:"fully_played,computed"`
+	Published        types.Bool  `tfsdk:"published" json:"published,computed"`
 	ResumePositionMs types.Int64 `tfsdk:"resume_position_ms" json:"resume_position_ms,computed"`
 }

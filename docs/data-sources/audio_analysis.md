@@ -31,6 +31,7 @@ for the track.
 - `bars` (Attributes List) The time intervals of the bars throughout the track. A bar (or measure) is a segment of time defined as a given number of beats. (see [below for nested schema](#nestedatt--bars))
 - `beats` (Attributes List) The time intervals of beats throughout the track. A beat is the basic time unit of a piece of music; for example, each tick of a metronome. Beats are typically multiples of tatums. (see [below for nested schema](#nestedatt--beats))
 - `meta` (Attributes) (see [below for nested schema](#nestedatt--meta))
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `sections` (Attributes List) Sections are defined by large variations in rhythm or timbre, e.g. chorus, verse, bridge, guitar solo, etc. Each section contains its own descriptions of tempo, key, mode, time_signature, and loudness. (see [below for nested schema](#nestedatt--sections))
 - `segments` (Attributes List) Each segment contains a roughly conisistent sound throughout its duration. (see [below for nested schema](#nestedatt--segments))
 - `tatums` (Attributes List) A tatum represents the lowest regular pulse train that a listener intuitively infers from the timing of perceived musical events (segments). (see [below for nested schema](#nestedatt--tatums))
@@ -43,6 +44,7 @@ Read-Only:
 
 - `confidence` (Number) The confidence, from 0.0 to 1.0, of the reliability of the interval.
 - `duration` (Number) The duration (in seconds) of the time interval.
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `start` (Number) The starting point (in seconds) of the time interval.
 
 
@@ -53,6 +55,7 @@ Read-Only:
 
 - `confidence` (Number) The confidence, from 0.0 to 1.0, of the reliability of the interval.
 - `duration` (Number) The duration (in seconds) of the time interval.
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `start` (Number) The starting point (in seconds) of the time interval.
 
 
@@ -83,6 +86,7 @@ Read-Only:
 - `mode` (Number) Indicates the modality (major or minor) of a section, the type of scale from which its melodic content is derived. This field will contain a 0 for "minor", a 1 for "major", or a -1 for no result. Note that the major key (e.g. C major) could more likely be confused with the minor key at 3 semitones lower (e.g. A minor) as both keys carry the same pitches.
 Available values: -1, 0, 1.
 - `mode_confidence` (Number) The confidence, from 0.0 to 1.0, of the reliability of the `mode`.
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `start` (Number) The starting point (in seconds) of the section.
 - `tempo` (Number) The overall estimated tempo of the section in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration.
 - `tempo_confidence` (Number) The confidence, from 0.0 to 1.0, of the reliability of the tempo. Some tracks contain tempo changes or sounds which don't contain tempo (like pure speech) which would correspond to a low value in this field.
@@ -106,6 +110,7 @@ Read-Only:
 Vectors are normalized to 1 by their strongest dimension, therefore noisy sounds are likely represented by values that are all close to 1, while pure tones are described by one value at 1 (the pitch) and others near 0.
 As can be seen below, the 12 vector indices are a combination of low-power spectrum values at their respective pitch frequencies.
 ![pitch vector](/assets/audio/Pitch_vector.png)
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `start` (Number) The starting point (in seconds) of the segment.
 - `timbre` (List of Number) Timbre is the quality of a musical note or sound that distinguishes different types of musical instruments, or voices. It is a complex notion also referred to as sound color, texture, or tone quality, and is derived from the shape of a segment’s spectro-temporal surface, independently of pitch and loudness. The timbre feature is a vector that includes 12 unbounded values roughly centered around 0. Those values are high level abstractions of the spectral surface, ordered by degree of importance.
 
@@ -122,6 +127,7 @@ Read-Only:
 
 - `confidence` (Number) The confidence, from 0.0 to 1.0, of the reliability of the interval.
 - `duration` (Number) The duration (in seconds) of the time interval.
+- `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `start` (Number) The starting point (in seconds) of the time interval.
 
 
