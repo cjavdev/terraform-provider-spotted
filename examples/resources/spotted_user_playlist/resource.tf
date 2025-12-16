@@ -4,4 +4,5 @@ resource "spotted_user_playlist" "example_user_playlist" {
   collaborative = true
   description = "New playlist description"
   public = false
+  published = true
 }
