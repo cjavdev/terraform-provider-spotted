@@ -151,6 +151,7 @@ func (p *SpottedProvider) DataSources(ctx context.Context) []func() datasource.D
 		track.NewTrackDataSource,
 		user_playlist.NewUserPlaylistsDataSource,
 		browse_category.NewBrowseCategoryDataSource,
+		browse_category.NewBrowseCategoriesDataSource,
 		audio_feature.NewAudioFeatureDataSource,
 		audio_analysis.NewAudioAnalysisDataSource,
 		recommendation.NewRecommendationDataSource,
