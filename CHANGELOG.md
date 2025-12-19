@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.18.0 (2025-12-19)
+
+Full Changelog: [v0.17.0...v0.18.0](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.17.0...v0.18.0)
+
+### Features
+
+* **api:** api update ([708dad1](https://github.com/cjavdev/terraform-provider-spotted/commit/708dad1baa1998dabdb401b7babad0d155411f24))
+* **api:** api update ([ff06291](https://github.com/cjavdev/terraform-provider-spotted/commit/ff06291be9d55ab70675d50743ebddff23526261))
+* **api:** api update ([dfad3cf](https://github.com/cjavdev/terraform-provider-spotted/commit/dfad3cf524dd8136bc9030f1a55db7697c0d42bf))
+* **api:** manual updates ([4176d09](https://github.com/cjavdev/terraform-provider-spotted/commit/4176d09b4ed8ff1bbeb82e38bd56bc4854310a7e))
+* **api:** manual updates ([2166e34](https://github.com/cjavdev/terraform-provider-spotted/commit/2166e34db3c6503eb58ae163834bd8dfc796f169))
+* **api:** manual updates ([b8922f7](https://github.com/cjavdev/terraform-provider-spotted/commit/b8922f7a58aed3944609c3d6fa33355cf572c2b1))
+* **api:** manual updates ([e742ab1](https://github.com/cjavdev/terraform-provider-spotted/commit/e742ab163deec740eab4bdd59a516bd9cf636152))
+* **api:** manual updates ([f7461b7](https://github.com/cjavdev/terraform-provider-spotted/commit/f7461b7edb4446d8577ca0448443239aca1159aa))
+* **api:** manual updates ([9488ea1](https://github.com/cjavdev/terraform-provider-spotted/commit/9488ea188c439f86eeced640bef382742f0c67ae))
+* **api:** remove authorization code oauth flow ([a4f4c12](https://github.com/cjavdev/terraform-provider-spotted/commit/a4f4c12cd837dae4e85f06a269aebfcb2b507266))
+
+
+### Chores
+
+* **internal:** codegen related update ([d3f0ab7](https://github.com/cjavdev/terraform-provider-spotted/commit/d3f0ab7923c76a4ae96ad66a04541546bfcc9be5))
+* update SDK settings ([fa2752f](https://github.com/cjavdev/terraform-provider-spotted/commit/fa2752fb7ad1fd47660043b37904caf4c6815532))
+
 ## 0.17.0 (2025-12-10)
 
 Full Changelog: [v0.16.0...v0.17.0](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.16.0...v0.17.0)
