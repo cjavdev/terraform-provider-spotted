@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.20.0 (2026-01-06)
+
+Full Changelog: [v0.19.0...v0.20.0](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.19.0...v0.20.0)
+
+### Features
+
+* **api:** manual updates ([5c61e63](https://github.com/cjavdev/terraform-provider-spotted/commit/5c61e63fe6cf1f7cf03d1ae46a773f2e138d7578))
+
+
+### Chores
+
+* **internal:** codegen related update ([4940e6d](https://github.com/cjavdev/terraform-provider-spotted/commit/4940e6d06e7515951eb5a74e0bcd486c5dbe212a))
+
 ## 0.19.0 (2026-01-05)
 
 Full Changelog: [v0.18.0...v0.19.0](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.18.0...v0.19.0)
