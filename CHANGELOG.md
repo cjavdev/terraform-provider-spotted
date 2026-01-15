@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.22.0 (2026-01-15)
+
+Full Changelog: [v0.21.0...v0.22.0](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.21.0...v0.22.0)
+
+### Features
+
+* **api:** manual updates ([1ffe379](https://github.com/cjavdev/terraform-provider-spotted/commit/1ffe37994d6cd3aabf2df95f93001afc33cf762b))
+* **api:** turn off oauth ([3fefc35](https://github.com/cjavdev/terraform-provider-spotted/commit/3fefc35bb89093a7c299ad39d9ed026d3c7c4ff4))
+
+
+### Chores
+
+* update Go SDK version ([a95eabf](https://github.com/cjavdev/terraform-provider-spotted/commit/a95eabf1f240a28ca210da30ed07ab2c5deba9e1))
+
 ## 0.21.0 (2026-01-06)
 
 Full Changelog: [v0.20.0...v0.21.0](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.20.0...v0.21.0)
