@@ -1,7 +1,7 @@
 # Unofficial Spotify Provider
 
 The [Unofficial Spotify provider](https://registry.terraform.io/providers/cjavdev/spotted/latest/docs) provides convenient access to
-the [Spotted REST API](https://spotted.stldocs.com?docs) from Terraform.
+the [Spotted REST API](https://spotted.cjav.dev) from Terraform.
 
 It is generated with [Stainless](https://www.stainless.com/).
 
@@ -22,15 +22,13 @@ terraform {
   required_providers {
     spotted = {
       source  = "cjavdev/spotted"
-      version = "~> 0.21.0"
+      version = "~> 0.22.0"
     }
   }
 }
 
 # Initialize the provider
 provider "spotted" {
-  client_id = "My Client ID" # or set SPOTIFY_CLIENT_ID env variable
-  client_secret = "My Client Secret" # or set SPOTIFY_CLIENT_SECRET env variable
   access_token = "My Access Token" # or set SPOTIFY_ACCESS_TOKEN env variable
 }
 
@@ -56,11 +54,9 @@ refer to the full documentation on [the Terraform Registry](https://registry.ter
 When you initialize the provider, the following options are supported. It is recommended to use environment variables for sensitive values like access tokens.
 If an environment variable is provided, then the option does not need to be set in the terraform source.
 
-| Property      | Environment variable    | Required | Default value |
-| ------------- | ----------------------- | -------- | ------------- |
-| client_secret | `SPOTIFY_CLIENT_SECRET` | false    | —             |
-| client_id     | `SPOTIFY_CLIENT_ID`     | false    | —             |
-| access_token  | `SPOTIFY_ACCESS_TOKEN`  | false    | —             |
+| Property     | Environment variable   | Required | Default value |
+| ------------ | ---------------------- | -------- | ------------- |
+| access_token | `SPOTIFY_ACCESS_TOKEN` | true     | —             |
 
 ## Semantic versioning
 

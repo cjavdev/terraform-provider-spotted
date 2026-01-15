@@ -29,6 +29,7 @@ import (
 	"github.com/cjavdev/terraform-provider-spotted/internal/services/track"
 	"github.com/cjavdev/terraform-provider-spotted/internal/services/user_playlist"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
+	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/provider"
 	"github.com/hashicorp/terraform-plugin-framework/provider/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
@@ -47,10 +48,8 @@ type SpottedProvider struct {
 
 // SpottedProviderModel describes the provider data model.
 type SpottedProviderModel struct {
-	BaseURL      types.String `tfsdk:"base_url" json:"base_url,optional"`
-	ClientID     types.String `tfsdk:"client_id" json:"client_id,optional"`
-	ClientSecret types.String `tfsdk:"client_secret" json:"client_secret,optional"`
-	AccessToken  types.String `tfsdk:"access_token" json:"access_token,optional"`
+	BaseURL     types.String `tfsdk:"base_url" json:"base_url,optional"`
+	AccessToken types.String `tfsdk:"access_token" json:"access_token,optional"`
 }
 
 func (p *SpottedProvider) Metadata(ctx context.Context, req provider.MetadataRequest, resp *provider.MetadataResponse) {
@@ -64,12 +63,6 @@ func ProviderSchema(ctx context.Context) schema.Schema {
 			"base_url": schema.StringAttribute{
 				Description: "Set the base url that the provider connects to.",
 				Optional:    true,
-			},
-			"client_id": schema.StringAttribute{
-				Optional: true,
-			},
-			"client_secret": schema.StringAttribute{
-				Optional: true,
 			},
 			"access_token": schema.StringAttribute{
 				Optional: true,
@@ -96,22 +89,17 @@ func (p *SpottedProvider) Configure(ctx context.Context, req provider.ConfigureR
 		opts = append(opts, option.WithBaseURL(o))
 	}
 
-	if !data.ClientID.IsNull() && !data.ClientID.IsUnknown() {
-		opts = append(opts, option.WithClientID(data.ClientID.ValueString()))
-	} else if o, ok := os.LookupEnv("SPOTIFY_CLIENT_ID"); ok {
-		opts = append(opts, option.WithClientID(o))
-	}
-
-	if !data.ClientSecret.IsNull() && !data.ClientSecret.IsUnknown() {
-		opts = append(opts, option.WithClientSecret(data.ClientSecret.ValueString()))
-	} else if o, ok := os.LookupEnv("SPOTIFY_CLIENT_SECRET"); ok {
-		opts = append(opts, option.WithClientSecret(o))
-	}
-
 	if !data.AccessToken.IsNull() && !data.AccessToken.IsUnknown() {
 		opts = append(opts, option.WithAccessToken(data.AccessToken.ValueString()))
 	} else if o, ok := os.LookupEnv("SPOTIFY_ACCESS_TOKEN"); ok {
 		opts = append(opts, option.WithAccessToken(o))
+	} else {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("access_token"),
+			"Missing access_token value",
+			"The access_token field is required. Set it in provider configuration or via the \"SPOTIFY_ACCESS_TOKEN\" environment variable.",
+		)
+		return
 	}
 
 	client := spotted.NewClient(
