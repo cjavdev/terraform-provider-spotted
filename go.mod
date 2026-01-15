@@ -76,4 +76,4 @@ require (
 	google.golang.org/protobuf v1.36.6 // indirect
 )
 
-replace github.com/cjavdev/spotted-go => github.com/stainless-sdks/spotted-go v0.0.0-20260106164904-6742899027b9
+replace github.com/cjavdev/spotted-go => github.com/stainless-sdks/spotted-go v0.0.0-20260114235544-dd8c9e3ee024
