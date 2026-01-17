@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.22.1 (2026-01-17)
+
+Full Changelog: [v0.22.0...v0.22.1](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.22.0...v0.22.1)
+
+### Chores
+
+* bump dependency version ([fa95d42](https://github.com/cjavdev/terraform-provider-spotted/commit/fa95d4290bf00f91408e2b90040e65d94f727b2b))
+* **internal:** codegen related update ([c264699](https://github.com/cjavdev/terraform-provider-spotted/commit/c2646996fa82829fca5ae2b1f034f403c15fd8fe))
+* **internal:** update `actions/checkout` version ([116de1f](https://github.com/cjavdev/terraform-provider-spotted/commit/116de1f14240607530d23ae30debb2973d10961c))
+
 ## 0.22.0 (2026-01-15)
 
 Full Changelog: [v0.21.0...v0.22.0](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.21.0...v0.22.0)
