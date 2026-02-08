@@ -47,7 +47,7 @@ If the time is imprecise (for example, the date/time of an album release), an ad
 
 Read-Only:
 
-- `available_markets` (List of String) A list of the countries in which the show can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
+- `available_markets` (List of String, Deprecated) A list of the countries in which the show can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
 - `copyrights` (Attributes List) The copyright statements of the show. (see [below for nested schema](#nestedatt--items--show--copyrights))
 - `description` (String) A description of the show. HTML tags are stripped away from this field, use `html_description` field in case HTML tags are needed.
 - `explicit` (Boolean) Whether or not the show has explicit content (true = yes it does; false = no it does not OR unknown).
@@ -61,7 +61,7 @@ Read-Only:
 - `media_type` (String) The media type of the show.
 - `name` (String) The name of the episode.
 - `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
-- `publisher` (String) The publisher of the show.
+- `publisher` (String, Deprecated) The publisher of the show.
 - `total_episodes` (Number) The total number of episodes in the show.
 - `type` (String) The object type.
 Available values: "show".

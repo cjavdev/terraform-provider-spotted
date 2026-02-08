@@ -29,11 +29,11 @@ data "spotted_artist" "example_artist" {
 
 - `external_urls` (Attributes) Known external URLs for this artist. (see [below for nested schema](#nestedatt--external_urls))
 - `followers` (Attributes) Information about the followers of the artist. (see [below for nested schema](#nestedatt--followers))
-- `genres` (List of String) A list of the genres the artist is associated with. If not yet classified, the array is empty.
+- `genres` (List of String, Deprecated) A list of the genres the artist is associated with. If not yet classified, the array is empty.
 - `href` (String) A link to the Web API endpoint providing full details of the artist.
 - `images` (Attributes List) Images of the artist in various sizes, widest first. (see [below for nested schema](#nestedatt--images))
 - `name` (String) The name of the artist.
-- `popularity` (Number) The popularity of the artist. The value will be between 0 and 100, with 100 being the most popular. The artist's popularity is calculated from the popularity of all the artist's tracks.
+- `popularity` (Number, Deprecated) The popularity of the artist. The value will be between 0 and 100, with 100 being the most popular. The artist's popularity is calculated from the popularity of all the artist's tracks.
 - `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `type` (String) The object type.
 Available values: "artist".

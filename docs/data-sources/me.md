@@ -23,16 +23,16 @@ data "spotted_me" "example_me" {
 
 ### Read-Only
 
-- `country` (String) The country of the user, as set in the user's account profile. An [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). _This field is only available when the current user has granted access to the [user-read-private](/documentation/web-api/concepts/scopes/#list-of-scopes) scope._
+- `country` (String, Deprecated) The country of the user, as set in the user's account profile. An [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). _This field is only available when the current user has granted access to the [user-read-private](/documentation/web-api/concepts/scopes/#list-of-scopes) scope._
 - `display_name` (String) The name displayed on the user's profile. `null` if not available.
-- `email` (String) The user's email address, as entered by the user when creating their account. _**Important!** This email address is unverified; there is no proof that it actually belongs to the user._ _This field is only available when the current user has granted access to the [user-read-email](/documentation/web-api/concepts/scopes/#list-of-scopes) scope._
-- `explicit_content` (Attributes) The user's explicit content settings. _This field is only available when the current user has granted access to the [user-read-private](/documentation/web-api/concepts/scopes/#list-of-scopes) scope._ (see [below for nested schema](#nestedatt--explicit_content))
+- `email` (String, Deprecated) The user's email address, as entered by the user when creating their account. _**Important!** This email address is unverified; there is no proof that it actually belongs to the user._ _This field is only available when the current user has granted access to the [user-read-email](/documentation/web-api/concepts/scopes/#list-of-scopes) scope._
+- `explicit_content` (Attributes, Deprecated) The user's explicit content settings. _This field is only available when the current user has granted access to the [user-read-private](/documentation/web-api/concepts/scopes/#list-of-scopes) scope._ (see [below for nested schema](#nestedatt--explicit_content))
 - `external_urls` (Attributes) Known external URLs for this user. (see [below for nested schema](#nestedatt--external_urls))
 - `followers` (Attributes) Information about the followers of the user. (see [below for nested schema](#nestedatt--followers))
 - `href` (String) A link to the Web API endpoint for this user.
 - `id` (String) The [Spotify user ID](/documentation/web-api/concepts/spotify-uris-ids) for the user.
 - `images` (Attributes List) The user's profile image. (see [below for nested schema](#nestedatt--images))
-- `product` (String) The user's Spotify subscription level: "premium", "free", etc. (The subscription level "open" can be considered the same as "free".) _This field is only available when the current user has granted access to the [user-read-private](/documentation/web-api/concepts/scopes/#list-of-scopes) scope._
+- `product` (String, Deprecated) The user's Spotify subscription level: "premium", "free", etc. (The subscription level "open" can be considered the same as "free".) _This field is only available when the current user has granted access to the [user-read-private](/documentation/web-api/concepts/scopes/#list-of-scopes) scope._
 - `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `type` (String) The object type: "user"
 - `uri` (String) The [Spotify URI](/documentation/web-api/concepts/spotify-uris-ids) for the user.

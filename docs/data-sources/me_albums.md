@@ -56,7 +56,7 @@ Read-Only:
 - `album_type` (String) The type of the album.
 Available values: "album", "single", "compilation".
 - `artists` (Attributes List) The artists of the album. Each artist object includes a link in `href` to more detailed information about the artist. (see [below for nested schema](#nestedatt--items--album--artists))
-- `available_markets` (List of String) The markets in which the album is available: [ISO 3166-1 alpha-2 country codes](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). _**NOTE**: an album is considered available in a market when at least 1 of its tracks is available in that market._
+- `available_markets` (List of String, Deprecated) The markets in which the album is available: [ISO 3166-1 alpha-2 country codes](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). _**NOTE**: an album is considered available in a market when at least 1 of its tracks is available in that market._
 - `copyrights` (Attributes List) The copyright statements of the album. (see [below for nested schema](#nestedatt--items--album--copyrights))
 - `external_ids` (Attributes) Known external IDs for the album. (see [below for nested schema](#nestedatt--items--album--external_ids))
 - `external_urls` (Attributes) Known external URLs for this album. (see [below for nested schema](#nestedatt--items--album--external_urls))
@@ -64,9 +64,9 @@ Available values: "album", "single", "compilation".
 - `href` (String) A link to the Web API endpoint providing full details of the album.
 - `id` (String) The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) for the album.
 - `images` (Attributes List) The cover art for the album in various sizes, widest first. (see [below for nested schema](#nestedatt--items--album--images))
-- `label` (String) The label associated with the album.
+- `label` (String, Deprecated) The label associated with the album.
 - `name` (String) The name of the album. In case of an album takedown, the value may be an empty string.
-- `popularity` (Number) The popularity of the album. The value will be between 0 and 100, with 100 being the most popular.
+- `popularity` (Number, Deprecated) The popularity of the album. The value will be between 0 and 100, with 100 being the most popular.
 - `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `release_date` (String) The date the album was first released.
 - `release_date_precision` (String) The precision with which `release_date` value is known.
@@ -174,7 +174,7 @@ Read-Only:
 Read-Only:
 
 - `artists` (Attributes List) The artists who performed the track. Each artist object includes a link in `href` to more detailed information about the artist. (see [below for nested schema](#nestedatt--items--album--tracks--total--artists))
-- `available_markets` (List of String) A list of the countries in which the track can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
+- `available_markets` (List of String, Deprecated) A list of the countries in which the track can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
 - `disc_number` (Number) The disc number (usually `1` unless the album consists of more than one disc).
 - `duration_ms` (Number) The track length in milliseconds.
 - `explicit` (Boolean) Whether or not the track has explicit lyrics ( `true` = yes it does; `false` = no it does not OR unknown).

@@ -428,10 +428,11 @@ func DataSourceSchema(ctx context.Context) schema.Schema {
 									},
 								},
 								"available_markets": schema.ListAttribute{
-									Description: "The markets in which the album is available: [ISO 3166-1 alpha-2 country codes](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). _**NOTE**: an album is considered available in a market when at least 1 of its tracks is available in that market._",
-									Computed:    true,
-									CustomType:  customfield.NewListType[types.String](ctx),
-									ElementType: types.StringType,
+									Description:        "The markets in which the album is available: [ISO 3166-1 alpha-2 country codes](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). _**NOTE**: an album is considered available in a market when at least 1 of its tracks is available in that market._",
+									Computed:           true,
+									DeprecationMessage: "This attribute is deprecated.",
+									CustomType:         customfield.NewListType[types.String](ctx),
+									ElementType:        types.StringType,
 								},
 								"external_urls": schema.SingleNestedAttribute{
 									Description: "Known external URLs for this album.",
@@ -591,10 +592,11 @@ func DataSourceSchema(ctx context.Context) schema.Schema {
 							},
 						},
 						"available_markets": schema.ListAttribute{
-							Description: "A list of the countries in which the track can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.",
-							Computed:    true,
-							CustomType:  customfield.NewListType[types.String](ctx),
-							ElementType: types.StringType,
+							Description:        "A list of the countries in which the track can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.",
+							Computed:           true,
+							DeprecationMessage: "This attribute is deprecated.",
+							CustomType:         customfield.NewListType[types.String](ctx),
+							ElementType:        types.StringType,
 						},
 						"disc_number": schema.Int64Attribute{
 							Description: "The disc number (usually `1` unless the album consists of more than one disc).",
@@ -705,8 +707,9 @@ func DataSourceSchema(ctx context.Context) schema.Schema {
 							Computed:    true,
 						},
 						"popularity": schema.Int64Attribute{
-							Description: "The popularity of the track. The value will be between 0 and 100, with 100 being the most popular.<br/>The popularity of a track is a value between 0 and 100, with 100 being the most popular. The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are.<br/>Generally speaking, songs that are being played a lot now will have a higher popularity than songs that were played a lot in the past. Duplicate tracks (e.g. the same track from a single and an album) are rated independently. Artist and album popularity is derived mathematically from track popularity. _**Note**: the popularity value may lag actual popularity by a few days: the value is not updated in real time._",
-							Computed:    true,
+							Description:        "The popularity of the track. The value will be between 0 and 100, with 100 being the most popular.<br/>The popularity of a track is a value between 0 and 100, with 100 being the most popular. The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are.<br/>Generally speaking, songs that are being played a lot now will have a higher popularity than songs that were played a lot in the past. Duplicate tracks (e.g. the same track from a single and an album) are rated independently. Artist and album popularity is derived mathematically from track popularity. _**Note**: the popularity value may lag actual popularity by a few days: the value is not updated in real time._",
+							Computed:           true,
+							DeprecationMessage: "This attribute is deprecated.",
 						},
 						"preview_url": schema.StringAttribute{
 							Description:        "A link to a 30 second preview (MP3 format) of the track. Can be `null`",
