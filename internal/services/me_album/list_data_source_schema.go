@@ -76,10 +76,11 @@ func ListDataSourceSchema(ctx context.Context) schema.Schema {
 									},
 								},
 								"available_markets": schema.ListAttribute{
-									Description: "The markets in which the album is available: [ISO 3166-1 alpha-2 country codes](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). _**NOTE**: an album is considered available in a market when at least 1 of its tracks is available in that market._",
-									Computed:    true,
-									CustomType:  customfield.NewListType[types.String](ctx),
-									ElementType: types.StringType,
+									Description:        "The markets in which the album is available: [ISO 3166-1 alpha-2 country codes](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). _**NOTE**: an album is considered available in a market when at least 1 of its tracks is available in that market._",
+									Computed:           true,
+									DeprecationMessage: "This attribute is deprecated.",
+									CustomType:         customfield.NewListType[types.String](ctx),
+									ElementType:        types.StringType,
 								},
 								"external_urls": schema.SingleNestedAttribute{
 									Description: "Known external URLs for this album.",
@@ -262,12 +263,14 @@ func ListDataSourceSchema(ctx context.Context) schema.Schema {
 									ElementType:        types.StringType,
 								},
 								"label": schema.StringAttribute{
-									Description: "The label associated with the album.",
-									Computed:    true,
+									Description:        "The label associated with the album.",
+									Computed:           true,
+									DeprecationMessage: "This attribute is deprecated.",
 								},
 								"popularity": schema.Int64Attribute{
-									Description: "The popularity of the album. The value will be between 0 and 100, with 100 being the most popular.",
-									Computed:    true,
+									Description:        "The popularity of the album. The value will be between 0 and 100, with 100 being the most popular.",
+									Computed:           true,
+									DeprecationMessage: "This attribute is deprecated.",
 								},
 								"published": schema.BoolAttribute{
 									Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
@@ -385,10 +388,11 @@ func ListDataSourceSchema(ctx context.Context) schema.Schema {
 														},
 													},
 													"available_markets": schema.ListAttribute{
-														Description: "A list of the countries in which the track can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.",
-														Computed:    true,
-														CustomType:  customfield.NewListType[types.String](ctx),
-														ElementType: types.StringType,
+														Description:        "A list of the countries in which the track can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.",
+														Computed:           true,
+														DeprecationMessage: "This attribute is deprecated.",
+														CustomType:         customfield.NewListType[types.String](ctx),
+														ElementType:        types.StringType,
 													},
 													"disc_number": schema.Int64Attribute{
 														Description: "The disc number (usually `1` unless the album consists of more than one disc).",

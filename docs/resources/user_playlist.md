@@ -45,7 +45,7 @@ resource "spotted_user_playlist" "example_user_playlist" {
 - `images` (Attributes List) Images for the playlist. The array may be empty or contain up to three images. The images are returned by size in descending order. See [Working with Playlists](/documentation/web-api/concepts/playlists). _**Note**: If returned, the source URL for the image (`url`) is temporary and will expire in less than a day._ (see [below for nested schema](#nestedatt--images))
 - `owner` (Attributes) The user who owns the playlist (see [below for nested schema](#nestedatt--owner))
 - `snapshot_id` (String) The version identifier for the current playlist. Can be supplied in other requests to target a specific playlist version
-- `tracks` (Attributes) The tracks of the playlist. (see [below for nested schema](#nestedatt--tracks))
+- `tracks` (Attributes) The tracks of the playlist. _**Note**: This field is only available for playlists owned by the current user._ (see [below for nested schema](#nestedatt--tracks))
 - `type` (String) The object type: "playlist"
 - `uri` (String) The [Spotify URI](/documentation/web-api/concepts/spotify-uris-ids) for the playlist.
 
@@ -159,7 +159,7 @@ Read-Only:
 - `album` (Attributes) The album on which the track appears. The album object includes a link in `href` to full information about the album. (see [below for nested schema](#nestedatt--tracks--items--track--album))
 - `artists` (Attributes List) The artists who performed the track. Each artist object includes a link in `href` to more detailed information about the artist. (see [below for nested schema](#nestedatt--tracks--items--track--artists))
 - `audio_preview_url` (String, Deprecated) A URL to a 30 second preview (MP3 format) of the episode. `null` if not available.
-- `available_markets` (List of String) A list of the countries in which the track can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
+- `available_markets` (List of String, Deprecated) A list of the countries in which the track can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
 - `description` (String) A description of the episode. HTML tags are stripped away from this field, use `html_description` field in case HTML tags are needed.
 - `disc_number` (Number) The disc number (usually `1` unless the album consists of more than one disc).
 - `duration_ms` (Number) The track length in milliseconds.
@@ -177,7 +177,7 @@ Read-Only:
 - `languages` (List of String) A list of the languages used in the episode, identified by their [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639) code.
 - `linked_from` (Attributes) Part of the response when [Track Relinking](/documentation/web-api/concepts/track-relinking) is applied, and the requested track has been replaced with different track. The track in the `linked_from` object contains information about the originally requested track. (see [below for nested schema](#nestedatt--tracks--items--track--linked_from))
 - `name` (String) The name of the track.
-- `popularity` (Number) The popularity of the track. The value will be between 0 and 100, with 100 being the most popular.<br/>The popularity of a track is a value between 0 and 100, with 100 being the most popular. The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are.<br/>Generally speaking, songs that are being played a lot now will have a higher popularity than songs that were played a lot in the past. Duplicate tracks (e.g. the same track from a single and an album) are rated independently. Artist and album popularity is derived mathematically from track popularity. _**Note**: the popularity value may lag actual popularity by a few days: the value is not updated in real time._
+- `popularity` (Number, Deprecated) The popularity of the track. The value will be between 0 and 100, with 100 being the most popular.<br/>The popularity of a track is a value between 0 and 100, with 100 being the most popular. The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are.<br/>Generally speaking, songs that are being played a lot now will have a higher popularity than songs that were played a lot in the past. Duplicate tracks (e.g. the same track from a single and an album) are rated independently. Artist and album popularity is derived mathematically from track popularity. _**Note**: the popularity value may lag actual popularity by a few days: the value is not updated in real time._
 - `preview_url` (String, Deprecated) A link to a 30 second preview (MP3 format) of the track. Can be `null`
 - `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
 - `release_date` (String) The date the episode was first released, for example `"1981-12-15"`. Depending on the precision, it might be shown as `"1981"` or `"1981-12"`.
@@ -199,7 +199,7 @@ Read-Only:
 - `album_type` (String) The type of the album.
 Available values: "album", "single", "compilation".
 - `artists` (Attributes List) The artists of the album. Each artist object includes a link in `href` to more detailed information about the artist. (see [below for nested schema](#nestedatt--tracks--items--track--uri--artists))
-- `available_markets` (List of String) The markets in which the album is available: [ISO 3166-1 alpha-2 country codes](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). _**NOTE**: an album is considered available in a market when at least 1 of its tracks is available in that market._
+- `available_markets` (List of String, Deprecated) The markets in which the album is available: [ISO 3166-1 alpha-2 country codes](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). _**NOTE**: an album is considered available in a market when at least 1 of its tracks is available in that market._
 - `external_urls` (Attributes) Known external URLs for this album. (see [below for nested schema](#nestedatt--tracks--items--track--uri--external_urls))
 - `href` (String) A link to the Web API endpoint providing full details of the album.
 - `id` (String) The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) for the album.
@@ -378,7 +378,7 @@ Read-Only:
 
 Read-Only:
 
-- `available_markets` (List of String) A list of the countries in which the show can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
+- `available_markets` (List of String, Deprecated) A list of the countries in which the show can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
 - `copyrights` (Attributes List) The copyright statements of the show. (see [below for nested schema](#nestedatt--tracks--items--track--uri--copyrights))
 - `description` (String) A description of the show. HTML tags are stripped away from this field, use `html_description` field in case HTML tags are needed.
 - `explicit` (Boolean) Whether or not the show has explicit content (true = yes it does; false = no it does not OR unknown).
@@ -392,7 +392,7 @@ Read-Only:
 - `media_type` (String) The media type of the show.
 - `name` (String) The name of the episode.
 - `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
-- `publisher` (String) The publisher of the show.
+- `publisher` (String, Deprecated) The publisher of the show.
 - `total_episodes` (Number) The total number of episodes in the show.
 - `type` (String) The object type.
 Available values: "show".

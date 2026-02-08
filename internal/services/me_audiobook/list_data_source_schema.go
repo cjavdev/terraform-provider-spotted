@@ -78,10 +78,11 @@ func ListDataSourceSchema(ctx context.Context) schema.Schema {
 									},
 								},
 								"available_markets": schema.ListAttribute{
-									Description: "A list of the countries in which the audiobook can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.",
-									Computed:    true,
-									CustomType:  customfield.NewListType[types.String](ctx),
-									ElementType: types.StringType,
+									Description:        "A list of the countries in which the audiobook can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.",
+									Computed:           true,
+									DeprecationMessage: "This attribute is deprecated.",
+									CustomType:         customfield.NewListType[types.String](ctx),
+									ElementType:        types.StringType,
 								},
 								"copyrights": schema.ListNestedAttribute{
 									Description: "The copyright statements of the audiobook.",
@@ -192,8 +193,9 @@ func ListDataSourceSchema(ctx context.Context) schema.Schema {
 									},
 								},
 								"publisher": schema.StringAttribute{
-									Description: "The publisher of the audiobook.",
-									Computed:    true,
+									Description:        "The publisher of the audiobook.",
+									Computed:           true,
+									DeprecationMessage: "This attribute is deprecated.",
 								},
 								"total_chapters": schema.Int64Attribute{
 									Description: "The number of chapters in this audiobook.",
@@ -366,10 +368,11 @@ func ListDataSourceSchema(ctx context.Context) schema.Schema {
 														Computed:    true,
 													},
 													"available_markets": schema.ListAttribute{
-														Description: "A list of the countries in which the chapter can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.",
-														Computed:    true,
-														CustomType:  customfield.NewListType[types.String](ctx),
-														ElementType: types.StringType,
+														Description:        "A list of the countries in which the chapter can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.",
+														Computed:           true,
+														DeprecationMessage: "This attribute is deprecated.",
+														CustomType:         customfield.NewListType[types.String](ctx),
+														ElementType:        types.StringType,
 													},
 													"published": schema.BoolAttribute{
 														Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",

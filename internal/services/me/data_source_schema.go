@@ -16,16 +16,18 @@ func DataSourceSchema(ctx context.Context) schema.Schema {
 	return schema.Schema{
 		Attributes: map[string]schema.Attribute{
 			"country": schema.StringAttribute{
-				Description: "The country of the user, as set in the user's account profile. An [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). _This field is only available when the current user has granted access to the [user-read-private](/documentation/web-api/concepts/scopes/#list-of-scopes) scope._",
-				Computed:    true,
+				Description:        "The country of the user, as set in the user's account profile. An [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). _This field is only available when the current user has granted access to the [user-read-private](/documentation/web-api/concepts/scopes/#list-of-scopes) scope._",
+				Computed:           true,
+				DeprecationMessage: "This attribute is deprecated.",
 			},
 			"display_name": schema.StringAttribute{
 				Description: "The name displayed on the user's profile. `null` if not available.",
 				Computed:    true,
 			},
 			"email": schema.StringAttribute{
-				Description: "The user's email address, as entered by the user when creating their account. _**Important!** This email address is unverified; there is no proof that it actually belongs to the user._ _This field is only available when the current user has granted access to the [user-read-email](/documentation/web-api/concepts/scopes/#list-of-scopes) scope._",
-				Computed:    true,
+				Description:        "The user's email address, as entered by the user when creating their account. _**Important!** This email address is unverified; there is no proof that it actually belongs to the user._ _This field is only available when the current user has granted access to the [user-read-email](/documentation/web-api/concepts/scopes/#list-of-scopes) scope._",
+				Computed:           true,
+				DeprecationMessage: "This attribute is deprecated.",
 			},
 			"href": schema.StringAttribute{
 				Description: "A link to the Web API endpoint for this user.",
@@ -36,8 +38,9 @@ func DataSourceSchema(ctx context.Context) schema.Schema {
 				Computed:    true,
 			},
 			"product": schema.StringAttribute{
-				Description: `The user's Spotify subscription level: "premium", "free", etc. (The subscription level "open" can be considered the same as "free".) _This field is only available when the current user has granted access to the [user-read-private](/documentation/web-api/concepts/scopes/#list-of-scopes) scope._`,
-				Computed:    true,
+				Description:        `The user's Spotify subscription level: "premium", "free", etc. (The subscription level "open" can be considered the same as "free".) _This field is only available when the current user has granted access to the [user-read-private](/documentation/web-api/concepts/scopes/#list-of-scopes) scope._`,
+				Computed:           true,
+				DeprecationMessage: "This attribute is deprecated.",
 			},
 			"published": schema.BoolAttribute{
 				Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
@@ -52,9 +55,10 @@ func DataSourceSchema(ctx context.Context) schema.Schema {
 				Computed:    true,
 			},
 			"explicit_content": schema.SingleNestedAttribute{
-				Description: "The user's explicit content settings. _This field is only available when the current user has granted access to the [user-read-private](/documentation/web-api/concepts/scopes/#list-of-scopes) scope._",
-				Computed:    true,
-				CustomType:  customfield.NewNestedObjectType[MeExplicitContentDataSourceModel](ctx),
+				Description:        "The user's explicit content settings. _This field is only available when the current user has granted access to the [user-read-private](/documentation/web-api/concepts/scopes/#list-of-scopes) scope._",
+				Computed:           true,
+				DeprecationMessage: "This attribute is deprecated.",
+				CustomType:         customfield.NewNestedObjectType[MeExplicitContentDataSourceModel](ctx),
 				Attributes: map[string]schema.Attribute{
 					"filter_enabled": schema.BoolAttribute{
 						Description: "When `true`, indicates that explicit content should not be played.",
