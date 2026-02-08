@@ -39,7 +39,7 @@ for the audiobook.
 ### Read-Only
 
 - `authors` (Attributes List) The author(s) for the audiobook. (see [below for nested schema](#nestedatt--authors))
-- `available_markets` (List of String) A list of the countries in which the audiobook can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
+- `available_markets` (List of String, Deprecated) A list of the countries in which the audiobook can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
 - `chapters` (Attributes) The chapters of the audiobook. (see [below for nested schema](#nestedatt--chapters))
 - `copyrights` (Attributes List) The copyright statements of the audiobook. (see [below for nested schema](#nestedatt--copyrights))
 - `description` (String) A description of the audiobook. HTML tags are stripped away from this field, use `html_description` field in case HTML tags are needed.
@@ -54,7 +54,7 @@ for the audiobook.
 - `name` (String) The name of the audiobook.
 - `narrators` (Attributes List) The narrator(s) for the audiobook. (see [below for nested schema](#nestedatt--narrators))
 - `published` (Boolean) The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)
-- `publisher` (String) The publisher of the audiobook.
+- `publisher` (String, Deprecated) The publisher of the audiobook.
 - `total_chapters` (Number) The number of chapters in this audiobook.
 - `type` (String) The object type.
 Available values: "audiobook".
@@ -89,7 +89,7 @@ Read-Only:
 Read-Only:
 
 - `audio_preview_url` (String, Deprecated) A URL to a 30 second preview (MP3 format) of the chapter. `null` if not available.
-- `available_markets` (List of String) A list of the countries in which the chapter can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
+- `available_markets` (List of String, Deprecated) A list of the countries in which the chapter can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
 - `chapter_number` (Number) The number of the chapter
 - `description` (String) A description of the chapter. HTML tags are stripped away from this field, use `html_description` field in case HTML tags are needed.
 - `duration_ms` (Number) The chapter length in milliseconds.

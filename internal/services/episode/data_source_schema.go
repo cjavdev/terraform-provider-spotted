@@ -188,10 +188,11 @@ func DataSourceSchema(ctx context.Context) schema.Schema {
 						Computed:    true,
 					},
 					"available_markets": schema.ListAttribute{
-						Description: "A list of the countries in which the show can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.",
-						Computed:    true,
-						CustomType:  customfield.NewListType[types.String](ctx),
-						ElementType: types.StringType,
+						Description:        "A list of the countries in which the show can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.",
+						Computed:           true,
+						DeprecationMessage: "This attribute is deprecated.",
+						CustomType:         customfield.NewListType[types.String](ctx),
+						ElementType:        types.StringType,
 					},
 					"copyrights": schema.ListNestedAttribute{
 						Description: "The copyright statements of the show.",
@@ -289,8 +290,9 @@ func DataSourceSchema(ctx context.Context) schema.Schema {
 						Computed:    true,
 					},
 					"publisher": schema.StringAttribute{
-						Description: "The publisher of the show.",
-						Computed:    true,
+						Description:        "The publisher of the show.",
+						Computed:           true,
+						DeprecationMessage: "This attribute is deprecated.",
 					},
 					"total_episodes": schema.Int64Attribute{
 						Description: "The total number of episodes in the show.",

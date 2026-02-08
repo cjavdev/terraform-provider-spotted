@@ -31,8 +31,9 @@ func DataSourceSchema(ctx context.Context) schema.Schema {
 				Computed:    true,
 			},
 			"popularity": schema.Int64Attribute{
-				Description: "The popularity of the artist. The value will be between 0 and 100, with 100 being the most popular. The artist's popularity is calculated from the popularity of all the artist's tracks.",
-				Computed:    true,
+				Description:        "The popularity of the artist. The value will be between 0 and 100, with 100 being the most popular. The artist's popularity is calculated from the popularity of all the artist's tracks.",
+				Computed:           true,
+				DeprecationMessage: "This attribute is deprecated.",
 			},
 			"published": schema.BoolAttribute{
 				Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
@@ -50,10 +51,11 @@ func DataSourceSchema(ctx context.Context) schema.Schema {
 				Computed:    true,
 			},
 			"genres": schema.ListAttribute{
-				Description: "A list of the genres the artist is associated with. If not yet classified, the array is empty.",
-				Computed:    true,
-				CustomType:  customfield.NewListType[types.String](ctx),
-				ElementType: types.StringType,
+				Description:        "A list of the genres the artist is associated with. If not yet classified, the array is empty.",
+				Computed:           true,
+				DeprecationMessage: "This attribute is deprecated.",
+				CustomType:         customfield.NewListType[types.String](ctx),
+				ElementType:        types.StringType,
 			},
 			"external_urls": schema.SingleNestedAttribute{
 				Description: "Known external URLs for this artist.",
