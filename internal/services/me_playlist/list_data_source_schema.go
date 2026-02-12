@@ -100,6 +100,25 @@ func ListDataSourceSchema(ctx context.Context) schema.Schema {
 								},
 							},
 						},
+						"items": schema.SingleNestedAttribute{
+							Description: "A collection containing a link ( `href` ) to the Web API endpoint where full details of the playlist's items can be retrieved, along with the `total` number of items in the playlist. Note, a track object may be `null`. This can happen if a track is no longer available.",
+							Computed:    true,
+							CustomType:  customfield.NewNestedObjectType[MePlaylistsItemsDataSourceModel](ctx),
+							Attributes: map[string]schema.Attribute{
+								"href": schema.StringAttribute{
+									Description: "A link to the Web API endpoint where full details of the playlist's tracks can be retrieved.",
+									Computed:    true,
+								},
+								"published": schema.BoolAttribute{
+									Description: "The playlist's public/private status (if it should be added to the user's profile or not): `true` the playlist will be public, `false` the playlist will be private, `null` the playlist status is not relevant. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)",
+									Computed:    true,
+								},
+								"total": schema.Int64Attribute{
+									Description: "Number of tracks in the playlist.",
+									Computed:    true,
+								},
+							},
+						},
 						"name": schema.StringAttribute{
 							Description: "The name of the playlist.",
 							Computed:    true,
@@ -162,7 +181,7 @@ func ListDataSourceSchema(ctx context.Context) schema.Schema {
 							Computed:    true,
 						},
 						"tracks": schema.SingleNestedAttribute{
-							Description: "A collection containing a link ( `href` ) to the Web API endpoint where full details of the playlist's tracks can be retrieved, along with the `total` number of tracks in the playlist. Note, a track object may be `null`. This can happen if a track is no longer available.",
+							Description: "**Deprecated:** Use `items` instead. A collection containing a link ( `href` ) to the Web API endpoint where full details of the playlist's tracks can be retrieved, along with the `total` number of tracks in the playlist. Note, a track object may be `null`. This can happen if a track is no longer available.",
 							Computed:    true,
 							CustomType:  customfield.NewNestedObjectType[MePlaylistsTracksDataSourceModel](ctx),
 							Attributes: map[string]schema.Attribute{
