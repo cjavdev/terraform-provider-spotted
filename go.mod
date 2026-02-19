@@ -2,8 +2,6 @@ module github.com/cjavdev/terraform-provider-spotted
 
 go 1.24.0
 
-toolchain go1.24.12
-
 require (
 	github.com/cjavdev/spotted-go v0.23.0
 	github.com/davecgh/go-spew v1.1.1
