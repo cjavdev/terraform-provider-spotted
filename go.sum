@@ -24,8 +24,8 @@ github.com/bmatcuk/doublestar/v4 v4.9.1 h1:X8jg9rRZmJd4yRy7ZeNDRnM+T3ZfHv15JiBJ/
 github.com/bmatcuk/doublestar/v4 v4.9.1/go.mod h1:xBQ8jztBU6kakFMg+8WGxn0c6z1fTSPVIjEY1Wr7jzc=
 github.com/bufbuild/protocompile v0.4.0 h1:LbFKd2XowZvQ/kajzguUp2DC9UEIQhIq77fZZlaQsNA=
 github.com/bufbuild/protocompile v0.4.0/go.mod h1:3v93+mbWn/v3xzN+31nwkJfrEpAUwp+BagBSZWx+TP8=
-github.com/cjavdev/spotted-go v0.24.0 h1:2FLWok7ZP3psX7w23pOyje9Kz/QIZt+5lpD12QLpJDQ=
-github.com/cjavdev/spotted-go v0.24.0/go.mod h1:r4QBUv1YwG+eurkDD8/Hl4ayoRPgS6o/MbRZY5tz1ow=
+github.com/cjavdev/spotted-go v0.24.1 h1:tnrQlwVMK+hUGd3GFMuJOKkkO+51k6Lvfs/pmNOBNmk=
+github.com/cjavdev/spotted-go v0.24.1/go.mod h1:r4QBUv1YwG+eurkDD8/Hl4ayoRPgS6o/MbRZY5tz1ow=
 github.com/cloudflare/circl v1.6.1 h1:zqIqSPIndyBh1bjLVVDHMPpVKqp8Su/V+6MeDzzQBQ0=
 github.com/cloudflare/circl v1.6.1/go.mod h1:uddAzsPgqdMAYatqJ0lsjX1oECcQLIlRpzZh3pJrofs=
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
