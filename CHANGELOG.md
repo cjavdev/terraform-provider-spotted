@@ -1,5 +1,46 @@
 # Changelog
 
+## 0.24.0 (2026-04-10)
+
+Full Changelog: [v0.23.0...v0.24.0](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.23.0...v0.24.0)
+
+### Features
+
+* add per-resource api permissions to schema description ([14e2870](https://github.com/cjavdev/terraform-provider-spotted/commit/14e287007aae0cb77a549ebaace042fb00302fb7))
+* **api:** api update ([881d8bd](https://github.com/cjavdev/terraform-provider-spotted/commit/881d8bdeb22086b74d398a603fc82a6c136c586f))
+
+
+### Bug Fixes
+
+* **ci:** in custom setup-go, pass through go-version and cache-dependency-path ([8a0dec5](https://github.com/cjavdev/terraform-provider-spotted/commit/8a0dec5f8f8a17ccf1274ec26a4fd483bacfc56c))
+* fall back to main branch if linking fails in CI ([69eb17c](https://github.com/cjavdev/terraform-provider-spotted/commit/69eb17c63b3a83a3bf89adc5c84797d828cc58e8))
+* fix for failing to drop invalid module replace in link script ([da873b8](https://github.com/cjavdev/terraform-provider-spotted/commit/da873b8b91d510d627ce2bbfb55258e1a63cdcd9))
+* fix quoting typo ([8dee66e](https://github.com/cjavdev/terraform-provider-spotted/commit/8dee66e23ae37960c9e30e4c10164458f4849916))
+* improve linking behavior when developing on a branch not in the Go SDK ([ebc4e98](https://github.com/cjavdev/terraform-provider-spotted/commit/ebc4e9830333acd96e16aeb4791beb0eacaba519))
+* improved workflow for developing on branches ([9520b75](https://github.com/cjavdev/terraform-provider-spotted/commit/9520b753bb6cf290dd0fbfc589f481fb54cc64f5))
+* **mcp:** bump agents version in cloudflare worker MCP servers ([9c13f8f](https://github.com/cjavdev/terraform-provider-spotted/commit/9c13f8f9bd1992def1318f9ecb574c77089d5509))
+* no longer require an API key when building on production repos ([21818d9](https://github.com/cjavdev/terraform-provider-spotted/commit/21818d9fe23f1ea8a7edbe93408e397ee3617500))
+* patch style requests should never send empty json body for objects ([e5c8868](https://github.com/cjavdev/terraform-provider-spotted/commit/e5c886845ce4fe4bc804d2316d8d5a9d7b26d5ac))
+* spurious update plans for float attributes after import ([35e8645](https://github.com/cjavdev/terraform-provider-spotted/commit/35e86455a0fd62a9d6549e303762cc7fb37a8391))
+
+
+### Chores
+
+* **docs:** update terraform-plugin-docs to v0.24.0 ([8574e7e](https://github.com/cjavdev/terraform-provider-spotted/commit/8574e7e8c914adca488a2108d0fe168be10c612d))
+* **internal:** codegen related update ([6db652b](https://github.com/cjavdev/terraform-provider-spotted/commit/6db652bddca74173a9086fe2d477cb207102ccb4))
+* **internal:** codegen related update ([2ee56a7](https://github.com/cjavdev/terraform-provider-spotted/commit/2ee56a78d80e456df8d228d12d07a3d22d1b7b72))
+* **internal:** codegen related update ([0851ef5](https://github.com/cjavdev/terraform-provider-spotted/commit/0851ef53401a9375cfa0ab5ca5d0cfcf79dcc34e))
+* **internal:** codegen related update ([49c05c3](https://github.com/cjavdev/terraform-provider-spotted/commit/49c05c30b24103e7f1988bb786a7705a55e7f634))
+* **internal:** codegen related update ([0abba49](https://github.com/cjavdev/terraform-provider-spotted/commit/0abba493cfaf22de4624ebd5be8bf18a9de7ab26))
+* **internal:** codegen related update ([85f6b51](https://github.com/cjavdev/terraform-provider-spotted/commit/85f6b512bfb1dddbb2b09dc0830c53820a495bb2))
+* **internal:** codegen related update ([91e8deb](https://github.com/cjavdev/terraform-provider-spotted/commit/91e8debc79188f302e3b2f7492bfe70310929da9))
+* **internal:** codegen related update ([4e63755](https://github.com/cjavdev/terraform-provider-spotted/commit/4e637551ecf3908085445f429ea4a9b1bf8ee0d7))
+* **internal:** remove mock server code ([271be7c](https://github.com/cjavdev/terraform-provider-spotted/commit/271be7c18c6258422d53fca2d2ee798f92f476f8))
+* **internal:** tweak CI branches ([2dffae5](https://github.com/cjavdev/terraform-provider-spotted/commit/2dffae5b2e8411279211c60e987043e63b3144a5))
+* **internal:** update gitignore ([5e7f688](https://github.com/cjavdev/terraform-provider-spotted/commit/5e7f6882d0588889cecaa94b7aae985d4a37a320))
+* **internal:** update multipart form array serialization ([8a70055](https://github.com/cjavdev/terraform-provider-spotted/commit/8a7005543249dafb5db3aefea0095e93e039a31d))
+* pin go releaser version ([674fc90](https://github.com/cjavdev/terraform-provider-spotted/commit/674fc9041e8280b16211754f925e271612d4564d))
+
 ## 0.23.0 (2026-02-08)
 
 Full Changelog: [v0.22.1...v0.23.0](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.22.1...v0.23.0)
