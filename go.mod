@@ -3,7 +3,7 @@ module github.com/cjavdev/terraform-provider-spotted
 go 1.24.0
 
 require (
-	github.com/cjavdev/spotted-go v0.25.0
+	github.com/cjavdev/spotted-go v0.25.1
 	github.com/davecgh/go-spew v1.1.1
 	github.com/hashicorp/terraform-plugin-docs v0.24.0
 	github.com/hashicorp/terraform-plugin-framework v1.15.0
