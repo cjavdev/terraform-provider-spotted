@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.24.1 (2026-04-23)
+
+Full Changelog: [v0.24.0...v0.24.1](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.24.0...v0.24.1)
+
+### Chores
+
+* **internal:** more robust bootstrap script ([a1588fd](https://github.com/cjavdev/terraform-provider-spotted/commit/a1588fddfc5623ec28b4b92217c27f15777a3645))
+
 ## 0.24.0 (2026-04-10)
 
 Full Changelog: [v0.23.0...v0.24.0](https://github.com/cjavdev/terraform-provider-spotted/compare/v0.23.0...v0.24.0)
