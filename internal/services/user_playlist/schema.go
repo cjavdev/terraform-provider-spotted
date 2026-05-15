@@ -25,7 +25,7 @@ func ResourceSchema(ctx context.Context) schema.Schema {
 			"id": schema.StringAttribute{
 				Description:   "The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) for the playlist.",
 				Computed:      true,
-				PlanModifiers: []planmodifier.String{stringplanmodifier.UseStateForUnknown(), stringplanmodifier.RequiresReplace()},
+				PlanModifiers: []planmodifier.String{stringplanmodifier.UseNonNullStateForUnknown(), stringplanmodifier.RequiresReplace()},
 			},
 			"user_id": schema.StringAttribute{
 				Description:   "The user's [Spotify user ID](/documentation/web-api/concepts/spotify-uris-ids).",
