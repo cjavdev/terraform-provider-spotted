@@ -8,6 +8,7 @@ import (
 )
 
 type MeDataSourceModel struct {
+	AccountID       types.String                                               `tfsdk:"account_id" json:"account_id,computed"`
 	Country         types.String                                               `tfsdk:"country" json:"country,computed"`
 	DisplayName     types.String                                               `tfsdk:"display_name" json:"display_name,computed"`
 	Email           types.String                                               `tfsdk:"email" json:"email,computed"`

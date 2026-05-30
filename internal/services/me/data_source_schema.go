@@ -15,6 +15,10 @@ var _ datasource.DataSourceWithConfigValidators = (*MeDataSource)(nil)
 func DataSourceSchema(ctx context.Context) schema.Schema {
 	return schema.Schema{
 		Attributes: map[string]schema.Attribute{
+			"account_id": schema.StringAttribute{
+				Description: "A public, immutable, pseudoanonymous identifier for the user's account. Use this field for account linking rather than the `id` field, as it is stable and will not change over the lifetime of the account.",
+				Computed:    true,
+			},
 			"country": schema.StringAttribute{
 				Description:        "The country of the user, as set in the user's account profile. An [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). _This field is only available when the current user has granted access to the [user-read-private](/documentation/web-api/concepts/scopes/#list-of-scopes) scope._",
 				Computed:           true,
@@ -34,7 +38,7 @@ func DataSourceSchema(ctx context.Context) schema.Schema {
 				Computed:    true,
 			},
 			"id": schema.StringAttribute{
-				Description: "The [Spotify user ID](/documentation/web-api/concepts/spotify-uris-ids) for the user.",
+				Description: "The [Spotify user ID](/documentation/web-api/concepts/spotify-uris-ids) for the user. Do not use this field for account linking — use `account_id` instead, which is immutable.",
 				Computed:    true,
 			},
 			"product": schema.StringAttribute{
